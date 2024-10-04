@@ -43,20 +43,38 @@ xml_data = '''<?xml version='1.0' encoding='UTF-8'?>
   </channel>
 </rss>'''
 
+
+# Verificar se o item já foi descarregado
+def verifica_duplicados(item):
+  pub_date = item.find('pubDate').text
+  #if pub_date == 'remover'
+  return pub_date == 'remover'
+
+  
 # Parse the XML
 root = ET.fromstring(xml_data)
 
 # Encontrar todos os itens no XML
 items = root.findall('.//item')
 
-# Iterar sobre os itens e remover aqueles com pubDate igual a 'teste_dup'
+# Iterar sobre os itens e remover aqueles com pubDate igual a 
+# 'teste_dup'
+# a ideia e verificar se o item ja tinha sido descarregado
+# e se sim remover, eliminando assim duplicados.
+# Ainda falta defenir como guardar este hisrorico
+# e como verificar se o item ja foi descarregado
 for item in items:
-    pub_date = item.find('pubDate').text
-    if pub_date == 'remover':
-        root.find('.//channel').remove(item)
-
-# Saída do XML modificado
+    #verifica_duplicados(item)
+    #pub_date = item.find('pubDate').text
+    #if pub_date == 'remover':
+  if verifica_duplicados(item):
+      root.find('.//channel').remove(item)
+  #todo: guardar historico
+  #todo: verifica se o numero de items e zero
+  # se sim não guarda ficheiro
+  # se não guarda a extração completa do xml
 modified_xml = ET.tostring(root, encoding='unicode')
 #print(modified_xml)
+
 with open('output.xml', 'wb') as file:
     file.write(modified_xml.encode('utf-8'))
