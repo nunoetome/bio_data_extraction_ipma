@@ -37,8 +37,8 @@ LOG_OUTPUT_FILE = 'app.log'
 # of a log messages of this application. This helps the bulk analysis of log files
 # preventing the confusion with date and time information
 # It stands for "My Python Logging System"
-LOG_FORMAT_FILE = '<<mpls>> %(asctime)s - %(name)s - %(levelname)s - %(message)s' 
-LOG_FORMAT_CONSOLE = '<<mpls>> %(levelname)s - %(message)s'
+LOG_FORMAT_FILE = '<<mpls>> %(asctime)s - %(name)s - %(levelname)s - %(message)s'.encode('utf-8').decode('utf-8')
+LOG_FORMAT_CONSOLE = '<<mpls>> %(levelname)s - %(message)s'.encode('utf-8').decode('utf-8')
 
 # ULTRA_DEBUG mode
 # This mode will reinforce the debug messages with a different format
@@ -125,9 +125,7 @@ def ini_logging():
     #LOGGER.warning('2 - Warning message')
     #LOGGER.error('2 - Error message')
     #LOGGER.critical('2 - Critical message')
-    
-
-    
+        
     return LOGGER
 
 

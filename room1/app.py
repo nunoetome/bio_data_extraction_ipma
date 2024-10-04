@@ -6,7 +6,7 @@
 import json
 import configparser
 from logging_config import LOGGER, ini_logging
-from impa_rss import extractRssInfo
+#from impa_rss import extractRssInfo
 
 
 SETTINGS_FILE_PATH = 'settings.json'
@@ -22,7 +22,7 @@ def main():
     #settings = load_settings()
     ini_logging()
     #LOGGER.debug(f"Settings: {settings}".encode('utf-8'))
-    extractRssInfo()
+    #extractRssInfo()
     
     
 if __name__ == '__main__':
