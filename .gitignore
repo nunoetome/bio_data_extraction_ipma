@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 bio_data_extraction_ipma_legacy.code-workspace
 room1/datasets/
+room1/datasets_test/
