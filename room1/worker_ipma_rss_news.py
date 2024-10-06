@@ -23,9 +23,9 @@ import xml.etree.ElementTree as ET
 RSS_URL = "https://www.ipma.pt/resources.www/rss/rss.news.ipma.xml"
 
 DATASET_ID = 'ipma_rss_news'
-DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA - (rss_news)'
-DATASET_FOLDER = 'datasets'
-HISTORIC_FILE = 'datasets\ipma_rss_news_history.txt'
+DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA'
+DATASET_FOLDER = 'datasets/news'
+HISTORIC_FILE = 'datasets/news/ipma_rss_news_history.txt'
 
 # ---------------------------------------------------------------
 
@@ -108,7 +108,7 @@ def save_rss_data_to_file(cleanedResponse, datasetName):
     fileName = generate_rss_file_name(datasetName)
     LOGGER.debug(f"Nome do ficheiro: {fileName}")
     
-    output_file = DATASET_FOLDER + '\\' + fileName
+    output_file = DATASET_FOLDER + '/' + fileName
     
     LOGGER.debug(f"Nome do ficheiro com caminho: {output_file}")
     with open(output_file, 'wb') as file:

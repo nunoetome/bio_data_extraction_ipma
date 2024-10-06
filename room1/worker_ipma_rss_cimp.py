@@ -23,8 +23,8 @@ RSS_URL = "https://www.ipma.pt/resources.www/rss/rss.cimp.ipma.xml"
 
 DATASET_ID = 'ipma_rss_cimp'
 DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA - (rss_cimp)'
-DATASET_FOLDER = 'datasets'
-HISTORIC_FILE = 'datasets\ipma_rss_cimp_history.txt'
+DATASET_FOLDER = 'datasets\cimp'
+HISTORIC_FILE = 'datasets\cimp\ipma_rss_cimp_history.txt'
 
 # ---------------------------------------------------------------
 

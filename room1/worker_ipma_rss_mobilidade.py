@@ -23,8 +23,8 @@ RSS_URL = "https://www.ipma.pt/pt/produtoseservicos/rss/rss.mobilidade.xml"
 
 DATASET_ID = 'ipma_rss_mobilidade'
 DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA'
-DATASET_FOLDER = 'datasets'
-HISTORIC_FILE = 'datasets\ipma_rss_mobilidade_history.txt'
+DATASET_FOLDER = 'datasets\mobilidade'
+HISTORIC_FILE = 'datasets\mobilidade\ipma_rss_mobilidade_history.txt'
 
 # ---------------------------------------------------------------
 
