@@ -19,12 +19,12 @@ import xml.etree.ElementTree as ET
 
 # ----------------- In code constant definition -----------------
 
-RSS_URL = "https://www.ipma.pt/pt/produtoseservicos/rss/rss.investigacao.xml"
+RSS_URL = "https://www.ipma.pt/resources.www/rss/rss.bolsas.ipma.xml"
 
-DATASET_ID = 'ipma_rss_investigacao'
+DATASET_ID = 'ipma_rss_bolsas'
 DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA'
-DATASET_FOLDER = 'datasets/investigacao'
-HISTORIC_FILE = 'datasets/investigacao/ipma_rss_investigacao_history.txt'
+DATASET_FOLDER = 'datasets/bolsas'
+HISTORIC_FILE = 'datasets/bolsas/ipma_rss_bolsas_history.txt'
 
 # ---------------------------------------------------------------
 
@@ -116,7 +116,7 @@ def save_rss_data_to_file(cleanedResponse, datasetName):
 
 
 
-def download_ipma_rss_investigacao():
+def download_ipma_rss_bolsas():
     LOGGER.info("Downloading RSS data from IPMA")
     
     # Faz o download do conteúdo do RSS
@@ -139,4 +139,4 @@ def download_ipma_rss_investigacao():
 # Test function
 # This shold no be used in production
 if __name__ == '__main__':
-    download_ipma_rss_investigacao()
+    download_ipma_rss_bolsas()
