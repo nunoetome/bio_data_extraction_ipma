@@ -19,12 +19,12 @@ import xml.etree.ElementTree as ET
 
 # ----------------- In code constant definition -----------------
 
-RSS_URL = "https://www.ipma.pt/resources.www/rss/rss.cimp.ipma.xml"
+RSS_URL = "https://www.ipma.pt/resources.www/rss/rss.investigacao.ipma.xml"
 
-DATASET_ID = 'ipma_rss_cimp'
-DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA - (rss_cimp)'
+DATASET_ID = 'ipma_rss_investigacao'
+DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA'
 DATASET_FOLDER = 'datasets_test'
-HISTORIC_FILE = 'datasets_test\ipma_rss_cimp_history.txt'
+HISTORIC_FILE = 'datasets_test\ipma_rss_investigacao_history.txt'
 
 # ---------------------------------------------------------------
 
