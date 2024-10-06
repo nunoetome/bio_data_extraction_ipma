@@ -35,9 +35,12 @@ def item_counter(rssResponse):
 # Verificar se o item já foi descarregado
 def is_duplicate(item):
     LOGGER.debug("Verificando se o item já foi descarregado")
-    # Identifica o item por pubDate
+    # Identifys the item by link + pubDate
     pub_date = item.find('pubDate').text
     LOGGER.debug(f"PubDate do item: {pub_date}")
+    link = item.find('link').text
+    LOGGER.debug(f"Link do item: {link}")
+    validation = f"{link} - {pub_date}"
     with open(HISTORIC_FILE, 'r') as file:
         for line in file:
             if line.strip() == pub_date:
