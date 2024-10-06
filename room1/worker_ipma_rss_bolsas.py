@@ -28,6 +28,31 @@ HISTORIC_FILE = 'datasets/bolsas/ipma_rss_bolsas_history.txt'
 
 # ---------------------------------------------------------------
 
+
+def download_item_atachments(item):
+    link = item.find('link').text
+    LOGGER.debug(f"Downloading attachment from {link}")
+    response = requests.get(link)
+    pub_date = item.find('pubDate').text.replace(" ", "_").replace(":", "-")
+    if response.status_code == 200:
+        file_name = pub_date + '-' + link.split('/')[-1]
+        output_file = DATASET_FOLDER + '/' + file_name
+        with open(output_file, 'wb') as file:
+            file.write(response.content)
+        LOGGER.info(f"Attachment saved to {output_file}")
+    else:
+        LOGGER.error(f"Failed to download attachment from {link}, status code: {response.status_code}")
+    pass
+
+
+def download_rss_atachments(rssResponse):
+    items = rssResponse.findall('.//item')
+    for item in items:
+        download_item_atachments(item)
+    pass
+
+
+
 def item_counter(rssResponse):
     # Conta o numero deitens no XML 
     items = rssResponse.findall('.//item')
@@ -114,24 +139,21 @@ def save_rss_data_to_file(cleanedResponse, datasetName):
         file.write(ET.tostring(cleanedResponse, encoding='utf-8', method='xml'))
     LOGGER.info(f"Cleaned RSS data saved to {output_file}")
 
-
-
 def download_ipma_rss_bolsas():
     LOGGER.info("Downloading RSS data from IPMA")
     
     # Faz o download do conteúdo do RSS
     rssResponse = requests.get(RSS_URL)
-    parcedRss = ET.fromstring(rssResponse.text)
-    
+    parcedRss = ET.fromstring(rssResponse.text)  
     LOGGER.debug(f"Parced RSS: {parcedRss}")
     cleanedResponse = purge_duplicate (parcedRss)
     LOGGER.debug(f"Cleaned Response: {cleanedResponse}")
-    
     if item_counter(cleanedResponse) == 0:
         LOGGER.info("NO NEW ITEMS TO DOWNLOAD, file discarded") 
         return
     else:
         save_rss_data_to_file(cleanedResponse, DATASET_ID)
+        download_rss_atachments(cleanedResponse)
         records_rss_file_in_history(cleanedResponse)
     pass
     

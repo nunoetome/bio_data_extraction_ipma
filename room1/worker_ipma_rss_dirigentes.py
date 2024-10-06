@@ -24,7 +24,7 @@ RSS_URL = "https://www.ipma.pt/pt/produtoseservicos/rss/rss.dirigentes.xml"
 DATASET_ID = 'ipma_rss_dirigentes'
 DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA'
 DATASET_FOLDER = 'datasets/dirigentes'
-HISTORIC_FILE = 'datasets/irigentes/ipma_rss_dirigentes_history.txt'
+HISTORIC_FILE = 'datasets/dirigentes/ipma_rss_dirigentes_history.txt'
 
 # ---------------------------------------------------------------
 

@@ -24,7 +24,7 @@ RSS_URL = "https://www.ipma.pt/pt/produtoseservicos/rss/rss.comuns.xml"
 DATASET_ID = 'ipma_rss_comuns'
 DATASET_DESCRIPTION = 'Dataset containing RSS data from IPMA'
 DATASET_FOLDER = 'datasets/comuns'
-HISTORIC_FILE = 'datasets/comuns/pma_rss_comuns_history.txt'
+HISTORIC_FILE = 'datasets/comuns/ipma_rss_comuns_history.txt'
 
 # ---------------------------------------------------------------
 
