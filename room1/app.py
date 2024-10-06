@@ -11,6 +11,7 @@
 
 import json
 from logging_config import LOGGER, ini_logging
+from worker_ipma_rss_news import download_ipma_rss_news
 from worker_ipma_rss_mobilidade import download_ipma_rss_mobilidade
 from worker_ipma_rss_investigacao import download_ipma_rss_investigacao
 from worker_ipma_rss_dirigentes import download_ipma_rss_dirigentes
@@ -55,7 +56,9 @@ def main():
     download_ipma_rss_mobilidade()
     LOGGER.debug("finished download_ipma_rss_mobilidade")
     
-    
+    LOGGER.debug("starting download_ipma_rss_news")
+    download_ipma_rss_news()
+    LOGGER.debug("finished download_ipma_rss_news")
     
     LOGGER.info(">>>>>>>>> Application finished <<<<<<<<<")
     
