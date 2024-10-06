@@ -11,6 +11,7 @@
 
 import json
 from logging_config import LOGGER, ini_logging
+from worker_ipma_rss_comuns import download_ipma_rss_comuns
 from worker_ipma_rss_cimp import download_ipma_rss_cimp
 from worker_ipma_rss_comunicados import download_ipma_rss_comunicados
 #from impa_rss import download_ipma_rss_comunicados
@@ -34,6 +35,12 @@ def main():
     LOGGER.debug("starting download_ipma_rss_cimp")
     download_ipma_rss_cimp()
     LOGGER.debug("finished download_ipma_rss_cimp") 
+    
+    LOGGER.debug("starting download_ipma_rss_comuns")
+    download_ipma_rss_comuns()
+    LOGGER.debug("finished download_ipma_rss_comuns")
+    
+    
     
     LOGGER.info(">>>>>>>>> Application finished <<<<<<<<<")
     
