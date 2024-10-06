@@ -11,6 +11,7 @@
 
 import json
 from logging_config import LOGGER, ini_logging
+from worker_ipma_rss_investigacao import download_ipma_rss_investigacao
 from worker_ipma_rss_dirigentes import download_ipma_rss_dirigentes
 from worker_ipma_rss_comuns import download_ipma_rss_comuns
 from worker_ipma_rss_cimp import download_ipma_rss_cimp
@@ -45,7 +46,9 @@ def main():
     download_ipma_rss_dirigentes()
     LOGGER.debug("finished download_ipma_rss_dirigentes")
     
-    
+    LOGGER.debug("starting download_ipma_rss_investigacao")
+    download_ipma_rss_investigacao()
+    LOGGER.debug("finished download_ipma_rss_investigacao")
     
     
     
