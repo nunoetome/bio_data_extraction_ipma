@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from logging_config import LOGGER, ini_logging
+from logging_config import LOGGER
 
 # XML fornecido
 xml_data = '''<?xml version='1.0' encoding='UTF-8'?>
@@ -47,14 +47,14 @@ xml_data = '''<?xml version='1.0' encoding='UTF-8'?>
 
 
 # Verificar se o item já foi descarregado
-def verifica_duplicados(item):
+def isDuplicate(item):
   pub_date = item.find('pubDate').text
   #if pub_date == 'remover'
   with open('historico.txt', 'r') as file:
     for line in file:
       if line.strip() == pub_date:
         return True
-  return False
+  return 
   
   
   return pub_date == 'remover'
@@ -70,7 +70,6 @@ def registaHistoria(item):
   
 
 def main():
-  ini_logging()
   LOGGER.debug('sandBox started')
   
   # Parse the XML
@@ -89,11 +88,12 @@ def main():
   # Ainda falta defenir como guardar este hisrorico
   # e como verificar se o item ja foi descarregado
   for item in items:
-      #verifica_duplicados(item)
+      #isDuplicate(item)
       #pub_date = item.find('pubDate').text
       #if pub_date == 'remover':
     LOGGER.info(f"Item {item.find('title').text} com data {item.find('pubDate').text}")
-    if verifica_duplicados(item):
+    if isDuplicate(item):
+      
       LOGGER.info(f"Item {item.find('title').text} já foi descarregado")
       root.find('.//channel').remove(item)
     else:
@@ -102,7 +102,7 @@ def main():
     
           
           
-  #todo: guardar historico
+ 
   #todo: verifica se o numero de items e zero
   # se sim não guarda ficheiro
   # se não guarda a extração completa do xml
