@@ -105,27 +105,6 @@ def ini_logging():
         
     
     LOGGER.addHandler(console_handler)
-    
-    LOGGER.debug('1 - Debug message')
-    #LOGGER.info('1 - Info message')
-    #LOGGER.warning('1 - Warning message')
-    #LOGGER.error('1 - Error message')
-    #LOGGER.critical('1 - Critical message')
-    
-
-    ## Criar um manipulador específico para logs de debug
-    #debug_handler = logging.StreamHandler()
-    #debug_formatter = logging.Formatter(LOG_FORMAT_DEBUG)
-    #debug_handler.setFormatter(debug_formatter)  # Aplicar formato de debug
-    #debug_handler.setLevel(logging.DEBUG)
-    #LOGGER.addHandler(debug_handler)
-    #
-    #LOGGER.debug('2 - Debug message')
-    #LOGGER.info('2 - Info message')
-    #LOGGER.warning('2 - Warning message')
-    #LOGGER.error('2 - Error message')
-    #LOGGER.critical('2 - Critical message')
-    
 
     
     return LOGGER
