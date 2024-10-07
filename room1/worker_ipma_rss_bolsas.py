@@ -1,3 +1,26 @@
+# -------------- worker_ipma_rss_bolsas.py --------------
+#
+# ------------------- Description -------------------------
+# This script downloads RSS data from IPMA and saves it to a file
+# It es part of a set of scripts dedicated to IPMA, and very similar
+# between them, with some changes in the constants and the 
+# functions that are called, as much as some minor customizations.
+#
+# This is part of the application "bio_data_data_extraction_ipma",
+# https://github.com/nunoetome/bio_data_extraction_ipma_legacy,
+# and it part a larger scope project that aims to extract 
+# data from various sources and store it in a database for 
+# cientific and technological research purposes.
+#
+# ------------------- info -------------------------
+# Category: Worker
+# RSS NAME: Bolsas de investigação IPMA
+# 
+# -------------------change log -------------------------
+# [2024-10-06] - [Nuno Tomé] - final alpha version
+# [2024-10-07] - [Nuno Tomé] - final beta version
+
+
 # ------------------- Description -------------------------
 # This script downloads RSS data from IPMA and saves it to a file
 # ------------------- info -------------------------

@@ -1,4 +1,26 @@
-# - This file is part of the project "bio_data_data_extraction_ipma" 
+# ------------------------- logging_config.py -------------------------
+#
+# ------------------- Description -------------------------
+# This script is responsible for configuring the logging system
+# for the application "bio_data_data_extraction_ipma",
+# https://github.com/nunoetome/bio_data_extraction_ipma_legacy,
+# and it part a larger scope project that aims to extract 
+# data from various sources and store it in a database for 
+# cientific and technological research purposes.
+#
+# ------------------- info -------------------------
+# This scrip is based on "My Python Logging System"
+# https://github.com/nunoetome/my_python_starter_kit
+# It was based on the version my_python_starter_kit 2.5 but
+# it was adapted to be used in this project
+# -------------------change log -------------------------
+# [?] - [Nuno Tomé] - [Initial Version]
+# [2024-10-06] - [Nuno Tomé] - final alpha version
+# [2024-10-07] - [Nuno Tomé] - final beta version
+
+
+# - This file is part of the project 
+# "bio_data_data_extraction_ipma" 
 # and was created by the project organization.
 
 

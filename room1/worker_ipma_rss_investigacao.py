@@ -1,13 +1,24 @@
+# -------------- worker_ipma_rss_investigacao.py --------------
+#
 # ------------------- Description -------------------------
 # This script downloads RSS data from IPMA and saves it to a file
+# It es part of a set of scripts dedicated to IPMA, and very similar
+# between them, with some changes in the constants and the 
+# functions that are called, as much as some minor customizations.
+#
+# This is part of the application "bio_data_data_extraction_ipma",
+# https://github.com/nunoetome/bio_data_extraction_ipma_legacy,
+# and it part a larger scope project that aims to extract 
+# data from various sources and store it in a database for 
+# cientific and technological research purposes.
+#
 # ------------------- info -------------------------
-# its based on the original worker script from the room1:
-# worker_ipma_rss_news.py - alpha version
+# Category: Worker
+# RSS NAME:  Concursos de Investigação Cientifica IPMA
+# 
 # -------------------change log -------------------------
-# version: alpha
-# [2024-10-06] - [Nuno Tomé] - [Initial Version]
-# changed: header
-
+# [2024-10-06] - [Nuno Tomé] - final alpha version
+# [2024-10-07] - [Nuno Tomé] - final beta version
 
 
 import feedparser
