@@ -33,13 +33,25 @@ HISTORIC_FILE = 'datasets/bolsas/ipma_rss_bolsas_history.txt'
 # associado a esse item
 # so esta testado num unico item
 def download_item_atachments(item):
+    
+    LOGGER.debug("Downloading item atachments")
     link = item.find('link').text
-    LOGGER.debug(f"Downloading attachment from {link}")
     response = requests.get(link)
-    pub_date = item.find('pubDate').text.replace(" ", "_").replace(":", "-")
+    LOGGER.debug(f"Downloaded attachment from {link}")
+    
+    # Get the publication date and format it to be used 
+    # in the file name
+    # then replace the spaces and colons with underscores
+    #pub_date = item.find('pubDate').text.replace(" ", "_").replace(":", "-")
+    
+    
+    pub_date = datetime.strptime(item.find('pubDate').text, "%a, %d %b %Y %H:%M:%S %Z").strftime("%Y%m%d-%H%M")
+
+
+
     if response.status_code == 200:
         file_name = pub_date + '-' + link.split('/')[-1]
-        output_file = DATASET_FOLDER + '/' + file_name
+        output_file = DATASET_FOLDER + '/' + DATASET_ID+ file_name
         with open(output_file, 'wb') as file:
             file.write(response.content)
         LOGGER.info(f"Attachment saved to {output_file}")
