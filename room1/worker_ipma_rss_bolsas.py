@@ -43,11 +43,7 @@ def download_item_atachments(item):
     # in the file name
     # then replace the spaces and colons with underscores
     #pub_date = item.find('pubDate').text.replace(" ", "_").replace(":", "-")
-    
-    
     pub_date = datetime.strptime(item.find('pubDate').text, "%a, %d %b %Y %H:%M:%S %Z").strftime("%Y%m%d-%H%M")
-
-
 
     if response.status_code == 200:
         file_name = pub_date + '-' + link.split('/')[-1]
