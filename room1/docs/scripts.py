@@ -28,6 +28,10 @@ This custom changes should be register in the change log and in the
 
 - worker_ipma_rss_bolsas.py
 - worker_ipma_rss_investigacao.py
+- worker_ipma_rss_comuns.py
+- worker_ipma_rss_comunicados.py
+- worker_ipma_rss_mobilidade.py
+- worker_ipma_rss_dirigentes.py
 downloding the files from the rss feed and saving them in the folder
 
 - worker_ipma_rss_cimp.py
@@ -35,16 +39,9 @@ downloding the files from the rss feed and saving them in the folder
 Has links but they are not being downloaded
 
 
-### RSS whidout links to files detected
 
-- worker_ipma_rss_comunicados.py
 
-    
 
-- worker_ipma_rss_mobilidade.py
-
-- worker_ipma_rss_dirigentes.py
-- worker_ipma_rss_comuns.py
 
 
 
