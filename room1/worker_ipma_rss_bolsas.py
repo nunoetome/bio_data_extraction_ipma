@@ -28,27 +28,49 @@ HISTORIC_FILE = 'datasets/bolsas/ipma_rss_bolsas_history.txt'
 
 # ---------------------------------------------------------------
 
-
+# Função para fazer o download dos anexos
+# Esta função recebe um item do XML e faz o download do anexo
+# associado a esse item
+# so esta testado num unico item
 def download_item_atachments(item):
+    
+    LOGGER.debug("Downloading item atachments")
     link = item.find('link').text
-    LOGGER.debug(f"Downloading attachment from {link}")
     response = requests.get(link)
-    pub_date = item.find('pubDate').text.replace(" ", "_").replace(":", "-")
+    LOGGER.debug(f"Downloaded attachment from {link}")
+    
+    # Get the publication date and format it to be used 
+    # in the file name
+    # then replace the spaces and colons with underscores
+    #pub_date = item.find('pubDate').text.replace(" ", "_").replace(":", "-")
+    
+    
+    pub_date = datetime.strptime(item.find('pubDate').text, "%a, %d %b %Y %H:%M:%S %Z").strftime("%Y%m%d-%H%M")
+
+
+
     if response.status_code == 200:
         file_name = pub_date + '-' + link.split('/')[-1]
-        output_file = DATASET_FOLDER + '/' + file_name
+        output_file = DATASET_FOLDER + '/' + DATASET_ID+ file_name
         with open(output_file, 'wb') as file:
             file.write(response.content)
         LOGGER.info(f"Attachment saved to {output_file}")
     else:
         LOGGER.error(f"Failed to download attachment from {link}, status code: {response.status_code}")
-    pass
+    return output_file
 
 
 def download_rss_atachments(rssResponse):
     items = rssResponse.findall('.//item')
     for item in items:
-        download_item_atachments(item)
+        output_file = download_item_atachments(item)
+        # Create a new element <link-internal> and set its text 
+        # to the output file path
+        item_link_internal = ET.Element('link-internal')
+        item_link_internal.text = output_file
+        
+        # Append the new element to the current item
+        item.append(item_link_internal)
     pass
 
 
@@ -152,8 +174,8 @@ def download_ipma_rss_bolsas():
         LOGGER.info("NO NEW ITEMS TO DOWNLOAD, file discarded") 
         return
     else:
-        save_rss_data_to_file(cleanedResponse, DATASET_ID)
         download_rss_atachments(cleanedResponse)
+        save_rss_data_to_file(cleanedResponse, DATASET_ID)
         records_rss_file_in_history(cleanedResponse)
     pass
     
