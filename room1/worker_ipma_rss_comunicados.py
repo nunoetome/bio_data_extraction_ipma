@@ -43,15 +43,21 @@ def is_duplicate(item):
     validation = f"{link} - {pub_date}"
     with open(HISTORIC_FILE, 'r') as file:
         for line in file:
-            if line.strip() == pub_date:
+            if line.strip() == validation:
                 return True
     return False
 
 def records_items_in_history(item):
     
+     # Identifys the item by link + pubDate
     pub_date = item.find('pubDate').text
+    LOGGER.debug(f"PubDate do item: {pub_date}")
+    link = item.find('link').text
+    LOGGER.debug(f"Link do item: {link}")
+    validation = f"{link} - {pub_date}"
+    
     with open(HISTORIC_FILE, 'a') as file:
-        file.write(f"{pub_date}\n")
+        file.write(f"{validation}\n")
     pass
 
 def records_rss_file_in_history(rssResponse):
