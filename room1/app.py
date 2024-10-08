@@ -1,13 +1,25 @@
-# app.py
-
-# - Description: 
-# - This is the main file of the application. 
-# - It is responsible for starting the application and 
+# ------------------------- app.py -------------------------
+#
+# ------------------- Description -------------------------
+# This is the main file of the application. 
+#
+# It is responsible for starting the application and 
 # calling the necessary functions to download the data 
-# from IPMA and extract the information from it.
+# from IPMA RSS sources and extract the information from it.
+# ------------------- info -------------------------
+# this starts:
+# - download_ipma_rss_comunicados
+# - download_ipma_rss_cimp
+# - download_ipma_rss_comuns
+# - download_ipma_rss_dirigentes
+# - download_ipma_rss_investigacao
+# - download_ipma_rss_mobilidade
+# - download_ipma_rss_news
+# - download_ipma_rss_bolsas
 # -------------------change log -------------------------
 # [2024-10-04] - [Nuno Tomé] - [Initial Version]
 # [2024-10-06] - [Nuno Tomé] - final alpha version
+# [2024-10-07] - [Nuno Tomé] - final beta version
 
 import json
 from logging_config import LOGGER, ini_logging
@@ -22,7 +34,7 @@ from worker_ipma_rss_comunicados import download_ipma_rss_comunicados
 
 SETTINGS_FILE_PATH = 'settings.json'
 
-#todo: implementar a leitura do ficheiro de configuração
+#todo: use this function to load the settings
 def load_settings():
     with open(SETTINGS_FILE_PATH, 'r') as file:
         settings = json.load(file)

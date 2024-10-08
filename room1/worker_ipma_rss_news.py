@@ -1,14 +1,24 @@
+# -------------- worker_ipma_rss_news.py --------------
+#
 # ------------------- Description -------------------------
 # This script downloads RSS data from IPMA and saves it to a file
+# It es part of a set of scripts dedicated to IPMA, and very similar
+# between them, with some changes in the constants and the 
+# functions that are called, as much as some minor customizations.
+#
+# This is part of the application "bio_data_data_extraction_ipma",
+# https://github.com/nunoetome/bio_data_extraction_ipma_legacy,
+# and it part a larger scope project that aims to extract 
+# data from various sources and store it in a database for 
+# cientific and technological research purposes.
+#
 # ------------------- info -------------------------
-# its based on the original worker script from the room1:
-# worker_ipma_rss_comunicados.py - alpha version
+# Category: Worker
+# RSS NAME:  Notícias
+# 
 # -------------------change log -------------------------
-# version: alpha
-# [2024-10-06] - [Nuno Tomé] - [Initial Version]
-# changed: header,
-# Chamged: isDuplicate and records_items_in_history functions
-# identification method changed to link + pubDate
+# [2024-10-06] - [Nuno Tomé] - final alpha version
+# [2024-10-07] - [Nuno Tomé] - final beta version
 
 
 import feedparser
@@ -29,14 +39,14 @@ HISTORIC_FILE = 'datasets/news/ipma_rss_news_history.txt'
 
 # ---------------------------------------------------------------
 
-def item_counter(rssResponse):
+def __item_counter(rssResponse):
     # Conta o numero deitens no XML 
     items = rssResponse.findall('.//item')
     LOGGER.debug(f"Numero de itens no XML: {len(items)}")
     return len(items)
 
 # Verificar se o item já foi descarregado
-def is_duplicate(item):
+def __is_duplicate(item):
     LOGGER.debug("Verificando se o item já foi descarregado")
     # Identifys the item by link + pubDate
     pub_date = item.find('pubDate').text
@@ -50,7 +60,7 @@ def is_duplicate(item):
                 return True
     return False
 
-def records_items_in_history(item):
+def __records_items_in_history(item):
     # Identifys the item by link + pubDate
     pub_date = item.find('pubDate').text
     LOGGER.debug(f"PubDate do item: {pub_date}")
@@ -61,31 +71,27 @@ def records_items_in_history(item):
         file.write(f"{validation}\n")
     pass
 
-def records_rss_file_in_history(rssResponse):
+def __records_rss_file_in_history(rssResponse):
     # Encontrar todos os itens no XML
     items = rssResponse.findall('.//item')
     
     # Iterar sobre os itens e registar aqueles que ainda 
     # não estão no histórico
     for item in items:
-        records_items_in_history(item)
+        __records_items_in_history(item)
     pass
 
 
-#********* NEW CODE *********
-# Todo: dar nome inetressante a esta função
-# algo com estilo tipo uma personagem do cinema ou da banda desenhada
-# que tenha a capacidade de detetar duplicados ou de eliminalos.
-# ALERTA: possibilidade de haver um bug nesta função
-# por poder estar a haver um equivoco entre s estamos a  retornar 
-def purge_duplicate (xmlAPorgar):
+
+# Function to clean the XML of duplicate items
+def __purge_duplicate (xmlAPorgar):
     # Encontrar todos os itens no XML
     thisXmlAPorgar = xmlAPorgar
     items = thisXmlAPorgar.findall('.//item')        
    
     for item in items:
      
-      if is_duplicate(item):
+      if __is_duplicate(item):
         LOGGER.error(f"Item {item.find('pub_date')} já foi descarregado")
         thisXmlAPorgar.find('.//channel').remove(item)
         LOGGER.info(f"Item {item.find('pub_date')} removido")
@@ -94,50 +100,83 @@ def purge_duplicate (xmlAPorgar):
     LOGGER.debug(f"XML LIMPO {thisXmlAPorgar}")
     return thisXmlAPorgar
 
-def generate_rss_file_name (datasetName):
+# Generate a file name for the RSS data
+def __generate_rss_file_name (datasetName):
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     LOGGER.debug(f"Data e hora atual: {current_time}")
-    LOGGER.debug(f"Nome do dataset: {datasetName}")
     fileName = f"{datasetName}_{current_time}.xml"
-    LOGGER.info(f"A dar nome ao ficheiro do dataset: {fileName}")
+    LOGGER.debug(f"Nome do dataset: {datasetName}")
+    LOGGER.info(f"File name: {fileName}")
     return fileName
 
-def save_rss_data_to_file(cleanedResponse, datasetName):
+# Save the cleaned RSS data to a file
+def __save_rss_data_to_file(cleanedResponse, datasetName):
     LOGGER.debug(f"Saving RSS data to file datasetName: {datasetName}")
-    # Save the cleaned XML to a file
-    fileName = generate_rss_file_name(datasetName)
+    
+    # generate the file name
+    fileName = __generate_rss_file_name(datasetName)
     LOGGER.debug(f"Nome do ficheiro: {fileName}")
-    
-    output_file = DATASET_FOLDER + '/' + fileName
-    
+    output_file = DATASET_FOLDER + '\\' + fileName
     LOGGER.debug(f"Nome do ficheiro com caminho: {output_file}")
-    with open(output_file, 'wb') as file:
-        file.write(ET.tostring(cleanedResponse, encoding='utf-8', method='xml'))
-    LOGGER.info(f"Cleaned RSS data saved to {output_file}")
+    
+    # Save the cleaned XML to a file
+    try:
+        with open(output_file, 'wb') as file:
+            file.write(ET.tostring(cleanedResponse, encoding='utf-8', method='xml'))
+        LOGGER.info(f"Cleaned RSS data saved to {output_file}")
+    except Exception as e:
+        LOGGER.error(f"Failed to save cleaned RSS data to file: {e}")
+    pass
 
 
-
+# Main function, the one that is called by the exterior
 def download_ipma_rss_news():
-    LOGGER.info("Downloading RSS data from IPMA")
+    LOGGER.info(f"Downloading RSS data from {__name__}")
     
-    # Faz o download do conteúdo do RSS
-    rssResponse = requests.get(RSS_URL)
-    parcedRss = ET.fromstring(rssResponse.text)
+    try:
+        # Faz o download do conteúdo do RSS
+        rssResponse = requests.get(RSS_URL)
+        rssResponse.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        LOGGER.error(f"Failed to download RSS feed: {e}")
+        return
+    LOGGER.debug(f"RSS Response: {rssResponse}")
     
+    try:
+        # Parce the RSS feed
+        parcedRss = ET.fromstring(rssResponse.text)
+    except ET.ParseError as e:
+        LOGGER.error(f"Failed to parse RSS feed: {e}")
+        return
     LOGGER.debug(f"Parced RSS: {parcedRss}")
-    cleanedResponse = purge_duplicate (parcedRss)
+    
+    # purges the duplicates from the RSS feed 
+    cleanedResponse = __purge_duplicate (parcedRss)
     LOGGER.debug(f"Cleaned Response: {cleanedResponse}")
     
-    if item_counter(cleanedResponse) == 0:
+    # If there are no new items to download, the file is discarded
+    if __item_counter(cleanedResponse) == 0:
         LOGGER.info("NO NEW ITEMS TO DOWNLOAD, file discarded") 
         return
     else:
-        save_rss_data_to_file(cleanedResponse, DATASET_ID)
-        records_rss_file_in_history(cleanedResponse)
+        try:
+            __save_rss_data_to_file(cleanedResponse, DATASET_ID)
+        except Exception as e:
+            LOGGER.error(f"Failed to save RSS data to file: {e}")
+            return
+        
+        try:
+            __records_rss_file_in_history(cleanedResponse)
+        except Exception as e:
+            LOGGER.error(f"Failed to record RSS file in history: {e}")
+    LOGGER.info(f"RSS data from {__name__} downloaded and saved to file")
     pass
     
 
 # Test function
 # This shold no be used in production
+# FOR DEBUGGING ONLY
 if __name__ == '__main__':
+    LOGGER.warning(f">>>> Starting SELF RUNNING TEST for {__name__} <<<<")
     download_ipma_rss_news()
+    LOGGER.warning(f">>>> Ending SELF RUNNING TEST for {__name__} <<<<")
