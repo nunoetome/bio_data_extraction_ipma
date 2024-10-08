@@ -43,7 +43,7 @@ HISTORIC_FILE = 'datasets/comuns/ipma_rss_comuns_history.txt'
 # Esta função recebe um item do XML e faz o download do anexo
 # associado a esse item
 # so esta testado num unico item
-def download_item_atachments(item):
+def __download_item_atachments(item):
     
     LOGGER.debug("Downloading item atachments")
     link = item.find('link').text
@@ -67,10 +67,10 @@ def download_item_atachments(item):
     return output_file
 
 
-def download_rss_atachments(rssResponse):
+def __download_rss_atachments(rssResponse):
     items = rssResponse.findall('.//item')
     for item in items:
-        output_file = download_item_atachments(item)
+        output_file = __download_item_atachments(item)
         # Create a new element <link-internal> and set its text 
         # to the output file path
         item_link_internal = ET.Element('link-internal')
@@ -82,14 +82,14 @@ def download_rss_atachments(rssResponse):
 
 
 
-def item_counter(rssResponse):
+def __item_counter(rssResponse):
     # Conta o numero deitens no XML 
     items = rssResponse.findall('.//item')
     LOGGER.debug(f"Numero de itens no XML: {len(items)}")
     return len(items)
 
 # Verificar se o item já foi descarregado
-def is_duplicate(item):
+def __is_duplicate(item):
     LOGGER.debug("Verificando se o item já foi descarregado")
     # Identifys the item by link + pubDate
     pub_date = item.find('pubDate').text
@@ -103,7 +103,7 @@ def is_duplicate(item):
                 return True
     return False
 
-def records_items_in_history(item):
+def __records_items_in_history(item):
     # Identifys the item by link + pubDate
     pub_date = item.find('pubDate').text
     LOGGER.debug(f"PubDate do item: {pub_date}")
@@ -114,14 +114,14 @@ def records_items_in_history(item):
         file.write(f"{validation}\n")
     pass
 
-def records_rss_file_in_history(rssResponse):
+def __records_rss_file_in_history(rssResponse):
     # Encontrar todos os itens no XML
     items = rssResponse.findall('.//item')
     
     # Iterar sobre os itens e registar aqueles que ainda 
     # não estão no histórico
     for item in items:
-        records_items_in_history(item)
+        __records_items_in_history(item)
     pass
 
 
@@ -131,14 +131,14 @@ def records_rss_file_in_history(rssResponse):
 # que tenha a capacidade de detetar duplicados ou de eliminalos.
 # ALERTA: possibilidade de haver um bug nesta função
 # por poder estar a haver um equivoco entre s estamos a  retornar 
-def purge_duplicate (xmlAPorgar):
+def __purge_duplicate (xmlAPorgar):
     # Encontrar todos os itens no XML
     thisXmlAPorgar = xmlAPorgar
     items = thisXmlAPorgar.findall('.//item')        
    
     for item in items:
      
-      if is_duplicate(item):
+      if __is_duplicate(item):
         LOGGER.error(f"Item {item.find('pub_date')} já foi descarregado")
         thisXmlAPorgar.find('.//channel').remove(item)
         LOGGER.info(f"Item {item.find('pub_date')} removido")
@@ -147,7 +147,7 @@ def purge_duplicate (xmlAPorgar):
     LOGGER.debug(f"XML LIMPO {thisXmlAPorgar}")
     return thisXmlAPorgar
 
-def generate_rss_file_name (datasetName):
+def __generate_rss_file_name (datasetName):
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     LOGGER.debug(f"Data e hora atual: {current_time}")
     LOGGER.debug(f"Nome do dataset: {datasetName}")
@@ -155,10 +155,10 @@ def generate_rss_file_name (datasetName):
     LOGGER.info(f"A dar nome ao ficheiro do dataset: {fileName}")
     return fileName
 
-def save_rss_data_to_file(cleanedResponse, datasetName):
+def __save_rss_data_to_file(cleanedResponse, datasetName):
     LOGGER.debug(f"Saving RSS data to file datasetName: {datasetName}")
     # Save the cleaned XML to a file
-    fileName = generate_rss_file_name(datasetName)
+    fileName = __generate_rss_file_name(datasetName)
     LOGGER.debug(f"Nome do ficheiro: {fileName}")
     
     output_file = DATASET_FOLDER + '\\' + fileName
@@ -178,16 +178,16 @@ def download_ipma_rss_comuns():
     parcedRss = ET.fromstring(rssResponse.text)
     
     LOGGER.debug(f"Parced RSS: {parcedRss}")
-    cleanedResponse = purge_duplicate (parcedRss)
+    cleanedResponse = __purge_duplicate (parcedRss)
     LOGGER.debug(f"Cleaned Response: {cleanedResponse}")
     
-    if item_counter(cleanedResponse) == 0:
+    if __item_counter(cleanedResponse) == 0:
         LOGGER.info("NO NEW ITEMS TO DOWNLOAD, file discarded") 
         return
     else:
-        download_rss_atachments(cleanedResponse)
-        save_rss_data_to_file(cleanedResponse, DATASET_ID)
-        records_rss_file_in_history(cleanedResponse)
+        __download_rss_atachments(cleanedResponse)
+        __save_rss_data_to_file(cleanedResponse, DATASET_ID)
+        __records_rss_file_in_history(cleanedResponse)
     pass
     
 
