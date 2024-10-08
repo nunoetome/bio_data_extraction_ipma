@@ -129,7 +129,7 @@ def __records_items_in_history(item):
 def __records_rss_file_in_history(rssResponse):
     # Encontrar todos os itens no XML
     items = rssResponse.findall('.//item')
-    
+
     # Iterar sobre os itens e registar aqueles que ainda 
     # não estão no histórico
     for item in items:
@@ -137,12 +137,8 @@ def __records_rss_file_in_history(rssResponse):
     pass
 
 
-#********* NEW CODE *********
-# Todo: dar nome inetressante a esta função
-# algo com estilo tipo uma personagem do cinema ou da banda desenhada
-# que tenha a capacidade de detetar duplicados ou de eliminalos.
-# ALERTA: possibilidade de haver um bug nesta função
-# por poder estar a haver um equivoco entre s estamos a  retornar 
+
+# Function to clean the XML of duplicate items
 def __purge_duplicate (xmlAPorgar):
     # Encontrar todos os itens no XML
     thisXmlAPorgar = xmlAPorgar
@@ -159,47 +155,90 @@ def __purge_duplicate (xmlAPorgar):
     LOGGER.debug(f"XML LIMPO {thisXmlAPorgar}")
     return thisXmlAPorgar
 
+# Generate a file name for the RSS data
 def __generate_rss_file_name (datasetName):
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     LOGGER.debug(f"Data e hora atual: {current_time}")
-    LOGGER.debug(f"Nome do dataset: {datasetName}")
     fileName = f"{datasetName}_{current_time}.xml"
-    LOGGER.info(f"A dar nome ao ficheiro do dataset: {fileName}")
+    LOGGER.debug(f"Nome do dataset: {datasetName}")
+    LOGGER.info(f"File name: {fileName}")
     return fileName
 
+# Save the cleaned RSS data to a file
 def __save_rss_data_to_file(cleanedResponse, datasetName):
     LOGGER.debug(f"Saving RSS data to file datasetName: {datasetName}")
-    # Save the cleaned XML to a file
+    
+    # generate the file name
     fileName = __generate_rss_file_name(datasetName)
     LOGGER.debug(f"Nome do ficheiro: {fileName}")
-    
     output_file = DATASET_FOLDER + '\\' + fileName
-    
     LOGGER.debug(f"Nome do ficheiro com caminho: {output_file}")
-    with open(output_file, 'wb') as file:
-        file.write(ET.tostring(cleanedResponse, encoding='utf-8', method='xml'))
-    LOGGER.info(f"Cleaned RSS data saved to {output_file}")
-
-def download_ipma_rss_bolsas():
-    LOGGER.info("Downloading RSS data from IPMA")
     
-    # Faz o download do conteúdo do RSS
-    rssResponse = requests.get(RSS_URL)
-    parcedRss = ET.fromstring(rssResponse.text)  
+    # Save the cleaned XML to a file
+    try:
+        with open(output_file, 'wb') as file:
+            file.write(ET.tostring(cleanedResponse, encoding='utf-8', method='xml'))
+        LOGGER.info(f"Cleaned RSS data saved to {output_file}")
+    except Exception as e:
+        LOGGER.error(f"Failed to save cleaned RSS data to file: {e}")
+    pass
+
+
+# Main function, the one that is called by the exterior
+def download_ipma_rss_bolsas():
+    LOGGER.info(f"Downloading RSS data from {__name__}")
+    
+    try:
+        # Faz o download do conteúdo do RSS
+        rssResponse = requests.get(RSS_URL)
+        rssResponse.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        LOGGER.error(f"Failed to download RSS feed: {e}")
+        return
+    LOGGER.debug(f"RSS Response: {rssResponse}")
+    
+    try:
+        # Parce the RSS feed
+        parcedRss = ET.fromstring(rssResponse.text)
+    except ET.ParseError as e:
+        LOGGER.error(f"Failed to parse RSS feed: {e}")
+        return
     LOGGER.debug(f"Parced RSS: {parcedRss}")
+    
+    # purges the duplicates from the RSS feed 
     cleanedResponse = __purge_duplicate (parcedRss)
     LOGGER.debug(f"Cleaned Response: {cleanedResponse}")
+    
+    # If there are no new items to download, the file is discarded
     if __item_counter(cleanedResponse) == 0:
         LOGGER.info("NO NEW ITEMS TO DOWNLOAD, file discarded") 
         return
     else:
-        __download_rss_attachments(cleanedResponse)
-        __save_rss_data_to_file(cleanedResponse, DATASET_ID)
-        __records_rss_file_in_history(cleanedResponse)
+        # Downloads the attachments and saves that file's new 
+        # path and name on the RSS feed
+        try:
+            __download_rss_attachments(cleanedResponse)
+        except Exception as e:
+            LOGGER.error(f"Failed to download RSS attachments: {e}")
+            return
+        try:
+            __save_rss_data_to_file(cleanedResponse, DATASET_ID)
+        except Exception as e:
+            LOGGER.error(f"Failed to save RSS data to file: {e}")
+            return
+        
+        try:
+            __records_rss_file_in_history(cleanedResponse)
+        except Exception as e:
+            LOGGER.error(f"Failed to record RSS file in history: {e}")
+    LOGGER.info(f"RSS data from {__name__} downloaded and saved to file")
     pass
     
 
 # Test function
 # This shold no be used in production
+# FOR DEBUGGING ONLY
 if __name__ == '__main__':
+    LOGGER.warning(f">>>> Starting SELF RUNNING TEST for {__name__} <<<<")
     download_ipma_rss_bolsas()
+    LOGGER.warning(f">>>> Ending SELF RUNNING TEST for {__name__} <<<<")
