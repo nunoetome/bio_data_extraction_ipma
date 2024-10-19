@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)https://api.ipma.pt/ -->
+<html lang="pt"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="IPMA, api, oceano, previsão, tempo, mar, meteorologia">
+    <meta name="author" content="IPMA">
+    <title>IPMA - api</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="./IPMA - api_files/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="./IPMA - api_files/one-page-wonder.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	<style>
+		.headline h1 { font-size: 77px; background: transparent !important; color: #fff !important; } 
+		.headline h2 { font-size: 24px; }
+		h4.panel-title { position: relative; }
+		h4.panel-title img { position: absolute; top: -10px; right: -15px; width: 50px; }
+	</style>
+	
+	<!-- Google tag (gtag.js) -->
+	<script async="" src="./IPMA - api_files/js"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-4BT7DMHQGP');
+	</script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a href="https://api.ipma.pt/#" class="navbar-brand">api homepage</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">api navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="https://api.ipma.pt/#about">sobre</a>
+                    </li>
+                    <li>
+                        <a href="https://api.ipma.pt/#ipma">IPMA</a>
+                    </li>
+                    <li>
+                        <a href="https://api.ipma.pt/#services">serviço online</a>
+                    </li>
+                    <li>
+                        <a href="https://api.ipma.pt/#legal">termos e condições </a>
+                    </li>
+                    <li>
+                        <a href="https://api.ipma.pt/#contact">contactos</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container">
+                <h1>IPMA API</h1>
+                <h2>Interface de Programação de Aplicações do IPMA</h2>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+	<div class="container">
+		<hr class="featurette-divider" id="about">
+<!-- 1 Featurette -->
+		<div class="featurette">
+            <img class="featurette-image img-circle img-responsive pull-right" src="./IPMA - api_files/img-api.png" alt="tools">
+            <h2 class="featurette-heading">sobre
+                <span class="text-muted"> api</span>
+            </h2>
+            <p class="lead">Este sistema de informações, API, suporta o serviço de assinatura de dados meteorológicos e oceanográficos produzidos no IPMA.</p>
+            <p class="lead">Com este Interface de Programação de Aplicações (API) o IPMA disponibiliza aos utilizadores uma forma de acederem a um conjunto de dados, passíveis de serem integrados aplicacionalmente.</p>
+            <p class="lead">O IPMA solicita aos utilizadores do serviço disponibilizado pela API que leiam as <a href="https://api.ipma.pt/#legal">"condições de utilização"</a>. O IPMA solicita ainda que seja enviado um email para o endereço electrónico <a href="mailto:webmaster@ipma.pt">webmaster@ipma.pt</a> a informar da sua utilização deste serviço e do seu propósito para efeitos de estatística e melhoria do serviço.</p>
+			<p class="lead">Para estar sempre informado de novos desenvolvimentos sobre a API subscreva à lista de distribuição respetiva (API - Desenvolvimentos) do serviço de <a target="_blank" href="http://subscricoes.ipma.pt/?p=subscribe"><b>Subscrições IPMA</b></a>.</p>
+		</div>
+		<hr class="featurette-divider" id="ipma">
+<!--  2 Featurette -->
+		<div class="featurette">
+            <img class="featurette-image img-circle img-responsive pull-right" src="./IPMA - api_files/ipma.17-vertical-logo.png" alt="ipma logo">
+            <h2 class="featurette-heading">IPMA,
+                <span class="text-muted">I.P.</span>
+            </h2>
+            <p class="lead">O Instituto Português do Mar e da Atmosfera, I. P. (IPMA, I. P.), é um instituto público, integrado na administração indireta do Estado, dotado de autonomia administrativa e financeira e património próprio.</p>
+            <p class="lead">O IPMA, I. P., prossegue atribuições do Ministério do Mar, sob superintendência e tutela do respetivo ministro.</p>
+         <p class="lead">A definição das orientações estratégicas e a fixação de objetivos para o IPMA, I.P., bem como o acompanhamento da sua execução, são articulados entre os membros do Governo responsáveis pelas áreas do mar e da ciência.</p>
+		</div>
+		<hr class="featurette-divider" id="services">
+<!--  3 Featurette -->
+		<div class="featurette">
+		<h2 class="featurette-heading">serviço <span class="text-muted">online</span></h2>
+		<p class="lead">A API disponibiliza, entre outros dados, dados de previsão associadas a locais (cidades) e localização dos eventos sísmicos, no formato JSON.</p>
+		<p>Os dados de previsão são obtidos automaticamente através de processamento estatístico das previsões de dois modelos numéricos (ECMWF e AROME), sendo atualizados duas vezes por dia, nomeadamente a corrida das 00UTC (disponibilizada em regra a partir das 10:00) e das 12UTC (disponibilizada em regra a partir das 20:00).</p>
+            <p>As previsões são apresentadas em horas UTC. No continente e na Região Autónoma da Madeira a hora legal é igual à UTC, no horário de inverno. No horário de verão, a hora legal é igual a UTC+1. Assim, nestas regiões, 10h UTC correspondem à hora legal de 10h no inverno e 11h no verão. Na Região Autónoma dos Açores a hora legal é igual a UTC-1 ou a UTC, respetivamente, nos horários de inverno e de verão.</p>
+			<h3 class="featurette-subheading">Serviços disponíveis:</h3>
+			<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="false">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H12">
+					<h4 class="panel-title"><a class="lead" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C12" aria-expanded="true" aria-controls="C12" onclick="this.blur();">
+						Avisos Meteorológicos até 3 dias</a>
+					</h4></div>
+					<div id="C12" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="H12" aria-expanded="true" style="">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json">
+									https://api.ipma.pt/open-data/forecast/warnings/warnings_www.json
+								</a><br>
+								<u>Notas</u>: Para mais informações sobre os Avisos Meteorológicos consulte o nosso <a target="_blank" href="https://www.ipma.pt/pt/enciclopedia/otempo/sam/">Guia</a>.
+							</p>
+							<p class="lead">
+								<b>Resultado</b> (formato json): <em>[{"text": "", "awarenessTypeName": "Agitação Marítima", "idAreaAviso": "BGC", "startTime": "2021-03-25T07:25:00", "awarenessLevelID": "green", "endTime": "2021-03-28T07:00:00"}, {"text": "", "awarenessTypeName": "Nevoeiro", "idAreaAviso": "BGC", "startTime": "2021-03-25T07:25:00", "awarenessLevelID": "green", "endTime": "2021-03-28T07:00:00"},...</em><br>
+								</p><ul>
+									<li><span>text</span>: texto descritivo do aviso (preenchido apenas quando o aviso é amarelo, laranja ou vermelho)</li>
+									<li><span>awarenessTypeName</span>: parâmetro do aviso (e.g. "Trovoada", "Agitação Marítima", "Precipitação", "Vento", "Nevoeiro", "Neve", "Tempo Frio", "Tempo Quente")</li>
+									<li><span>awarenessLevelID</span>: cor / nível do aviso (e.g. "green", "yellow", "orange", "red", só existem avisos para níveis diferentes de "green", ou seja, "yellow", "orange", "red")</li>
+									<li><span>startTime</span>: data/hora de início da duração do aviso</li>
+									<li><span>endTime</span>: data/hora de fim da duração do aviso</li>
+									<li><span>idAreaAviso</span>: identificador da área dos avisos (consultar serviço auxiliar "Lista de identificadores para as capitais distrito e ilhas")</li>
+								</ul>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H0">
+					<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C0" aria-expanded="false" aria-controls="C0" onclick="this.blur();">
+						Previsão Meteorológica Diária até 5 dias agregada por Local</a></h4>
+					</div>
+					<div id="C0" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H0" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/forecast/meteorology/cities/daily">
+									https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/{globalIdLocal}.json
+								</a><br>
+								<u>Notas</u>: Apenas estão disponíveis dados diários.
+							</p>
+							<p><b>Exemplo</b>:<br> https://api.ipma.pt/file-example/1110600.json</p>
+							<p class="lead">
+								<b>Resultado</b> (formato json): <em>{"owner": "IPMA", "country": "PT", "data": [{"precipitaProb": "0.0", "tMin": "7.6", "tMax": "13.3", "predWindDir": "N", "idWeatherType": 2, "classWindSpeed": 2, "longitude": "-9.1", "forecastDate": "2018-01-26", "latitude": "38.8"}
+, {"precipitaProb": "0.0", "tMin": "7.1", "tMax": "13.6", "predWindDir": "N", "idWeatherType": 2, "classWindSpeed": 2, "classPrecInt": 0, "longitude": "-9.1", "forecastDate": "2018-01-27", "latitude": "38.8"}], "globalIdLocal": 1110600, "dataUpdate": "2018-01-26T09:02:03"}</em><br>
+								</p><ul>
+									<li><span>forecastDate</span>: data da previsão</li>
+									<li><span>dataUpdate</span>: data de atualização do ficheiro (taxa de atualização horária)</li>
+									<li><span>globalIdLocal</span>: identificador do local (consultar serviço auxiliar "Lista de identificadores para as capitais distrito e ilhas")</li>
+									<li><span>idWeatherType</span>: código relativo ao tipo de tempo</li>
+									<li><span>tMin</span>: temperatura mínima diária</li>
+									<li><span>tMax</span>: temperatura máxima diária</li>
+									<li><span>classWindSpeed</span>: classe da intensidade do vento</li>
+									<li><span>predWindDir</span>: rumo predominante do vento (N, NE, E, SE, S, SW, W, NW)</li>
+									<li><span>probPrecipita</span>: probabilidade da precipitação</li>
+									<li><span>classPrecInt</span>: classe da intensidade da precipitação</li>								
+									<li><span>latitude</span>: latitude</li>
+									<li><span>longitude</span>: longitude</li>
+								</ul>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H1">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C1" aria-expanded="false" aria-controls="C1" onclick="this.blur();">
+								Previsão Meteorológica Diária até 3 dias, informação agregada por dia</a></h4>
+					</div>
+					<div id="C1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H1" aria-expanded="false">
+						<div class="panel-body">
+						<p>
+							<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/forecast/meteorology/cities/daily">
+								https://api.ipma.pt/open-data/forecast/meteorology/cities/daily/hp-daily-forecast-day{idDay}.json
+							</a><br>
+							<u>Notas</u>: Apenas estão disponíveis dados diários. {idDay} varia entre 0 e 2, sendo que:
+						</p><ul>
+							<li><span>0</span> - é dia equivalente ao hoje</li>
+							<li><span>1</span> - amanhã </li>
+							<li><span>2</span> - depois de amanhã</li>
+						</ul>
+						<p></p>
+						<p class="lead">
+							<b>Resultado</b> (formato json): <em>{{ "owner": "IPMA",  "country": "PT",  "forecastDate": "2018-02-26",  "data": [  {   "precipitaProb": "6.0",    "tMin": "7.6",    "tMax": "21.6",    "predWindDir": "E",    "idWeatherType": 3,    "classWindSpeed": 1,    "longitude": "-8.7",    "globalIdLocal": 1010500,    "latitude": "40.6"  },   {   "precipitaProb": "97.0", "tMin": "8.3",    "tMax": "19.1",    "predWindDir": "SE",    "idWeatherType": 6,    "classWindSpeed": 2, "classPrecInt": 0,    "longitude": "-7.9",    "classPrecInt": 2,    "globalIdLocal": 1020500,    "latitude": "38.0"  } ],  "dataUpdate": "2018-02-26T17:02:03"}</em><br>
+							</p><ul>
+								<li><span>forecastDate</span>: data para qual a informação é válida </li>
+								<li><span>dataUpdate</span>: data de atualização do ficheiro (taxa de atualização horária)</li>
+								<li><span>globalIdLocal</span>: identificador do local (consultar serviço auxiliar "Lista de identificadores para as capitais distrito e ilhas")</li>
+								<li><span>idWeatherType</span>: código relativo ao tipo de tempo</li>
+								<li><span>tMin</span>: temperatura mínima diária</li>
+								<li><span>tMax</span>: temperatura máxima diária</li>
+								<li><span>classWindSpeed</span>: classe da intensidade do vento</li>
+								<li><span>predWindDir</span>: rumo predominante do vento (N, NE, E, SE, S, SW, W, NW)</li>
+								<li><span>probPrecipita</span>: probabilidade da precipitação</li>
+								<li><span>classPrecInt</span>: classe da intensidade da precipitação</li>
+								<li><span>latitude</span>: latitude</li>
+								<li><span>longitude</span>: longitude</li>
+							</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="H4">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C4" aria-expanded="false" aria-controls="C4" onclick="this.blur();">
+								Informação sismicidade, Arq. Açores, Continente e Arq. Madeira. Integra 30 dias de informação
+							</a>
+						</h4>
+						</div>
+						<div id="C4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H4" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/observation/seismic">
+									https://api.ipma.pt/open-data/observation/seismic/{idArea}.json
+								</a><br>
+								<u>Notas</u>: Atualização é horária. {idArea} pode assumir os seguintes valores:
+								</p><ul>
+									<li><span>3</span> - Arq. Açores</li>
+									<li><span>7</span> - Continente e Arq. Madeira </li>
+								</ul>
+							<p></p>
+							<p class="lead"><b>Resultado</b> (formato json): <em>{"owner": "IPMA", "country": "PT", "idArea": 3, "data": [{"degree": null, "dataUpdate": "2018-02-10T21:00:00", "magType": "L", "obsRegion": "Fossa de Hirondelle", "lon": "-26.3490", "source": "IPMA", "depth": 5, "shakemapid": "0", "time": "2018-01-28T01:46:28", "lat": "38.0340", "local": null, "magnitud": "2.4"}, {"degree": null, "dataUpdate": "2018-02-10T21:00:00", "magType": "L", "obsRegion": "Caldeira Guilherme Moniz", "lon": "-27.2150", "source": "IPMA", "depth": 2, "shakemapid": "0", "time": "2018-01-28T06:32:22", "lat": "38.7200", "local": null, "magnitud": "2.1"}, {"degree": null, "dataUpdate": "2018-02-10T21:00:00", "magType": "L", "obsRegion": "N Fossa de Hirondelle", "lon": "-26.0340", "source": "IPMA", "depth": 5, "shakemapid": "0", "time": "2018-01-29T05:46:56", "lat": "38.3030", "local": null, "magnitud": "2.1"},  {"degree": null, "dataUpdate": "2018-02-13T09:00:00", "magType": "L", "obsRegion": "Fossa da Povoa\u00e7\u00e3o", "lon": "-24.7080", "source": "IPMA", "shakemapid": "0", "time": "2018-02-03T18:33:07", "lat": "37.4980", "local": null, "magnitud": "2.9"}]}</em><br>
+							</p><ul>
+								<li><span>time</span>: data hora (TU) do evento sismico</li>
+								<li><span>local</span>: nome do local/região da localização do epicento</li>
+								<li><span>lat</span>: latitude do epicento</li>
+								<li><span>long</span>: longitude do epicento</li>
+								<li><span>magnitud</span>: magnitude</li>
+								<li><span>magType</span>: tipo de magnitude</li>
+								<li><span>degree</span>: grau  </li>
+								<li><span>dataUpdate</span>: data de atualização </li>
+								<li><span>magType</span>: tipo de magnitude</li>
+								<li><span>obsRegion</span>: código relativo à região</li>
+								<li><span>depth</span>: profundidade</li>
+							</ul>
+							<p></p>
+						</div>
+						</div>			  			
+					</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H2">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C2" aria-expanded="false" aria-controls="C2" onclick="this.blur();">
+								Previsão do Estado do Mar até 3 dias, informação agregada por dia</a>								
+						</h4>
+					</div>
+					<div id="C2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H2" aria-expanded="false">
+						<div class="panel-body">
+						<p>
+							<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/forecast/oceanography/daily">
+								https://api.ipma.pt/open-data/forecast/oceanography/daily/hp-daily-sea-forecast-day{idDay}.json
+							</a><br>
+							<u>Notas</u>: Apenas estão disponíveis dados diários. {idDay} varia entre 0 e 2, sendo que:
+						</p><ul>
+							<li><span>0</span> - é dia equivalente ao hoje</li>
+							<li><span>1</span> - amanhã </li>
+							<li><span>2</span> - depois de amanhã</li>
+						</ul>
+						<p></p>
+						<p class="lead">
+							<b>Resultado</b> (formato json): <em>{{
+
+								"owner": "IPMA",
+								"country": "PT",
+								"forecastDate": "2020-02-04",
+								"data": [
+									{
+										"wavePeriodMin": "5.8",
+										"globalIdLocal": 2320126,
+										"totalSeaMax": 1.5,
+										"waveHighMax": "1.1",
+										"waveHighMin": "0.5",
+										"longitude": "-16.3400",
+										"wavePeriodMax": "6.5",
+										"latitude": "33.2500",
+										"totalSeaMin": 0.5,
+										"sstMax": "19.1",
+										"predWaveDir": "S",
+										"sstMin": "19.0"
+									},...    ],
+									"dataUpdate": "2020-02-04T14:31:03"
+								
+								}</em><br>
+							</p><ul>
+								<li><span>forecastDate</span>: data para qual a informação é válida </li>
+								<li><span>dataUpdate</span>: data de atualização do ficheiro (taxa de atualização horária)</li>
+								<li><span>globalIdLocal</span>: identificador do local (consultar serviço auxiliar "Lista de identificadores para regiões costeiras")</li>
+								<li><span>wavePeriodMin</span>: mínimo diário do período de pico, associado à ondulação (swell), em segundos</li>
+								<li><span>wavePeriodMax</span>: máximo diário do período de pico, associado à ondulação (swell), em segundos</li>
+								<li><span>waveHighMin</span>: mínimo diário da altura da ondulação (swell) em metros</li>
+								<li><span>waveHighMax</span>: máximo diário da altura da ondulação (swell) em metros</li>								
+								<li><span>predWaveDir</span>: rumo predominante da onda (N, NE, E, SE, S, SW, W, NW)</li>
+								<li><span>totalSeaMin</span>: mínimo diário da altura significativa das ondas, em metros</li>
+								<li><span>totalSeaMax</span>: máximo diário da altura significativa das ondas, em metros</li>
+								<li><span>sstMin</span>: mínimo diário da temperatura da superfície do mar em ºC</li>
+								<li><span>sstMax</span>: máximo diário da temperatura da superfície do mar em ºC</li>
+								<li><span>latitude</span>: latitude</li>
+								<li><span>longitude</span>: longitude</li>
+							</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="H3">
+						<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C3" aria-expanded="false" aria-controls="C3" onclick="this.blur();">
+							Previsão do Risco de Incêndio até 2 dias, informação agregada por dia</a>
+						</h4>
+						</div>
+						<div id="C3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H3" aria-expanded="false">
+							<div class="panel-body">
+								<p>
+									<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/forecast/meteorology/rcm">
+										https://api.ipma.pt/open-data/forecast/meteorology/rcm/rcm-d{idDay}.json
+									</a><br>
+									<u>Notas</u>: Apenas estão disponíveis dados diários. {idDay} varia entre 0 e 1, sendo que:
+									</p><ul>
+										<li><span>0</span> - é dia equivalente ao hoje</li>
+										<li><span>1</span> - amanhã </li>
+									</ul>
+									Códigos de rcm:
+									<ul>
+										<li><span>1</span> - Risco reduzido</li>
+										<li><span>2</span> - Risco moderado</li>
+										<li><span>3</span> - Risco Elevado</li>
+										<li><span>4</span> - Risco muito elevado</li>
+										<li><span>5</span> - Risco máximo</li>
+									</ul>
+								<p></p>
+								<p class="lead">
+									<b>Resultado</b> (formato json): <em>{
+
+											"dataPrev": "2020-02-03",
+											"dataRun": "2020-02-02",
+											"fileDate": "2020-02-03 09:05:01",
+											"local": {
+												"{DICO}": {
+													"data": {
+														"rcm": 1
+													},
+													"DICO": "1001",
+													"latitude": 39.55,
+													"longitude": -8.97
+												},..</em><br>
+									</p><ul>
+										<li><span>dataPrev</span>: data da previsão</li>
+										<li><span>dataRun</span>: data da corrida do modelo</li>
+										<li><span>fileDate</span>: data de atualização do ficheiro (taxa de atualização horária)</li>
+										<li><span>DICO</span>: Identificador único de concelho (de acordo com a CAOP - DGT)</li>
+										<li><span>rcm</span>: código relativo ao tipo de risco de incêndio</li>							
+										<li><span>latitude</span>: latitude</li>
+										<li><span>longitude</span>: longitude</li>
+									</ul>
+								<p></p>
+							</div>
+						</div>
+					</div>	
+				<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="H13">
+						<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C13" aria-expanded="false" aria-controls="C13" onclick="this.blur();">
+							Previsão do Risco de Ultravioletas até 3 dias (Índice Ultravioleta)</a>
+						</h4></div>
+						<div id="C13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H13" aria-expanded="false">
+							<div class="panel-body">
+								<p>
+									<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json">
+										https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json
+									</a><br>
+									<u>Notas</u>: Para mais informações consulte a seguinte <a target="_blank" href="https://www.ipma.pt/pt/otempo/prev.uv/">página</a>.
+								</p>
+								<p class="lead">
+									<b>Resultado</b> (formato json): <em>[{ "idPeriodo": 0, "intervaloHora": "14h-14h", "data": "2021-03-25", "globalIdLocal": 3480200, "iUv": "5.0" },...</em><br>
+									</p><ul>
+										<li><span>data</span>: data referente aos dados</li>
+										<li><span>globalIdLocal</span>: identificador do local (consultar serviço auxiliar "Lista de identificadores para as capitais distrito e ilhas")</li>
+										<li><span>iUv</span>: valor do índice ultravioleta (&gt;= 11: Extremo, &gt;= 8: Muito elevado, &gt;= 6: Elevado, &gt;=3: Moderado, &gt;=1: Baixo)</li>
+										<li><span>intervaloHora</span>: intervalo de horas relativo ao valor máximo de UV</li>										<li><span>idPeriodo</span>: código interno do período</li>
+									</ul>
+								<p></p>
+							</div>
+						</div>
+					</div>			
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H5">
+					<h4 class="panel-title">
+						<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C5" aria-expanded="false" aria-controls="C5" onclick="this.blur();">
+							Observação Meteorológica de Estações (dados horários, últimas 24 horas)
+						</a>
+					</h4>
+					</div>
+					<div id="C5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H5" aria-expanded="false">
+					<div class="panel-body">
+						<p>
+							<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json">
+								https://api.ipma.pt/open-data/observation/meteorology/stations/observations.json
+							</a><br>
+							<u>Notas</u>: Taxa de atualização horária. (valor "-99.0" = nodata)
+						</p>
+						<p class="lead"><b>Resultado</b> (formato json): <em>{
+								"{YYYY-mm-ddThh:mi}": {
+								 "{idEstacao}": {
+								  "intensidadeVentoKM": 0.0, 
+								  "temperatura": 7.7, 
+								  "idDireccVento": 3, 
+								  "precAcumulada": 0.0, 
+								  "intensidadeVento": 0.0, 
+								  "humidade": 89.0, 
+								  "pressao": -99.0,
+								  "radiacao": -99.0
+								 }, ...}</em><br>
+						</p><ul>
+							<li><span>YYYY-mm-ddThh:mi</span>: data/hora da observação</li>
+							<li><span>idEstacao</span>: identificador da estação (consultar serviço auxiliar "Lista de identificadores das estações meteorológicas")</li>
+							<li><span>intensidadeVentoKM</span>: intensidade do vento registada a 10 metros de altura (km/h)</li>
+							<li><span>temperatura</span>: temperatura do ar registada a 1.5 metros de altura, média da hora (ºC)</li>
+							<li><span>idDireccVento</span>: classe do rumo do vento ao rumo predominante do vento registado a 10 metros de altura (0: sem rumo, 1 ou 9: "N", 2: "NE", 3: "E", 4: "SE", 5: "S", 6: "SW", 7: "W", 8: "NW")</li>
+							<li><span>precAcumulada</span>: precipitação registada a 1.5 metros de altura, valor acumulado da hora (mm)</li>
+							<li><span>intensidadeVento</span>: intensidade do vento registada a 10 metros de altura (m/s)</li>
+							<li><span>humidade</span>: humidade relativa do ar registada a 1.5 metros de altura, média da hora (%)</li>
+							<li><span>pressao</span>: pressão atmosférica, reduzida ao nível médio do mar (NMM), média da hora (hPa)</li>
+							<li><span>radiacao</span>: radiação solar (kJ/m2)</li>
+						</ul>
+						<p></p>
+					</div>
+					</div>			  			
+				</div>
+				<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="H6">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C6" aria-expanded="false" aria-controls="C6" onclick="this.blur();">
+								Observação Meteorológica de Estações, últimas 3 horas (formato GeoJSON)
+							</a>
+						</h4>
+						</div>
+						<div id="C6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H6" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/observation/meteorology/stations/obs-surface.geojson">
+									https://api.ipma.pt/open-data/observation/meteorology/stations/obs-surface.geojson
+								</a><br>
+								<u>Notas</u>: Taxa de atualização horária. (valor "-99.0" = nodata)
+							</p>
+							<p class="lead"><b>Resultado</b> (formato geojson): <em>{
+									"type": "FeatureCollection", 
+									"features": [
+										{
+											"geometry": {
+												"type": "Point", 
+												"coordinates": [
+													-31.1301, 
+													39.4582
+												]
+											}, 
+											"type": "Feature", 
+											"properties": {
+												"intensidadeVentoKM": 11.9, 
+												"temperatura": 18.2, 
+												"idEstacao": 1200501, 
+												"pressao": 1009.5, 
+												"humidade": -99.0, 
+												"localEstacao": "Flores (Aeroporto)", 
+												"precAcumulada": 0.0, 
+												"idDireccVento": 4, 
+												"radiacao": -99.0,
+												"time": "2020-01-29T14:00:00", 
+												"intensidadeVento": 3.3, 
+												"descDirVento": "SE"
+											}
+										}, ...}</em><br>
+							</p><ul>
+								<li><span>time</span>: data/hora da observação</li>
+								<li><span>idEstacao</span>: identificador da estação</li>
+								<li><span>localEstacao</span>: nome da estação</li>
+								<li><span>intensidadeVentoKM</span>: intensidade do vento registada a 10 metros de altura (km/h)</li>
+								<li><span>temperatura</span>: temperatura do ar registada a 1.5 metros de altura, média da hora (ºC)</li>
+								<li><span>idDireccVento</span>: classe do rumo do vento ao rumo predominante do vento registado a 10 metros de altura (0: sem rumo, 1 ou 9: "N", 2: "NE", 3: "E", 4: "SE", 5: "S", 6: "SW", 7: "W", 8: "NW")</li>
+								<li><span>descDirVento</span>: rumo do vento ao rumo predominante do vento registado a 10 metros de altura</li>
+								<li><span>precAcumulada</span>: precipitação registada a 1.5 metros de altura, valor acumulado da hora (mm)</li>
+								<li><span>intensidadeVento</span>: intensidade do vento registada a 10 metros de altura (m/s)</li>
+								<li><span>humidade</span>: humidade relativa do ar registada a 1.5 metros de altura, média da hora (%)</li>
+								<li><span>pressao</span>: pressão atmosférica, reduzida ao nível médio do mar (NMM), média da hora (hPa)</li>
+								<li><span>radiacao</span>: radiação solar (kJ/m2)</li>
+							</ul>
+							<p></p>
+						</div>
+                    </div>			  			
+                </div>				
+				<div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="H7">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C7" aria-expanded="false" aria-controls="C7" onclick="this.blur();">
+								Evapotranspiração de referência diária por concelho (formato CSV)
+							</a>
+						</h4>
+						</div>
+						<div id="C7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H7" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br><a href="https://api.ipma.pt/open-data/observation/climate/evapotranspiration/">
+									https://api.ipma.pt/open-data/observation/climate/evapotranspiration/{distrito}/et0-{DICO}-{concelho}.csv
+								</a><br>
+								<u>Notas</u>: 
+								</p><ul>
+									<li>Valores diários obtidos através do processo de interpolação com recurso aos dados das estações meteorológicas automáticas da rede do IPMA.</li>
+									<li>Valores dos últimos 2 meses.</li>
+									<li>Taxa de atualização diária.</li>
+									<li>DICO: Identificador único de concelho (de acordo com a CAOP - DGT).</li>
+								</ul>
+							<p></p>
+							<p class="lead"><b>Resultado</b> (formato csv):<br>
+								<em>date,minimum,maximum,range,mean,std
+									2019-11-05,2.41702,2.507849,0.090821,2.45881,0.021354
+									2019-11-06,1.233739,1.567819,0.33408,1.3868,0.092168</em><br>
+							</p><ul>
+								<li><span>date</span>: data dos valores de referência</li>
+								<li><span>minimum</span>: valor diário mínimo de Evapotranspiração em mm</li>
+								<li><span>maximum</span>: valor diário máximo de Evapotranspiração em mm</li>
+								<li><span>range</span>: valor diário da amplitude de Evapotranspiração em mm</li>
+								<li><span>mean</span>: valor diário da mediana de Evapotranspiração em mm</li>
+								<li><span>std</span>: valor diário do desvio padrão de Evapotranspiração em mm</li>
+							</ul>
+							<p></p>
+						</div>
+					</div>			  			
+				</div>	
+				<div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="H8">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C8" aria-expanded="false" aria-controls="C8" onclick="this.blur();">
+								Precipitação total diária por concelho (formato CSV)
+							</a>
+						</h4>
+						</div>
+						<div id="C8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H8" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br><a href="https://api.ipma.pt/open-data/observation/climate/precipitation-total/">
+									https://api.ipma.pt/open-data/observation/climate/precipitation-total/{distrito}/mrrto-{DICO}-{concelho}.csv
+								</a><br>
+								<u>Notas</u>: 
+								</p><ul>
+									<li>Valores diários obtidos através do processo de interpolação com recurso aos dados das estações meteorológicas automáticas da rede do IPMA.</li>
+									<li>Valores dos últimos 2 meses.</li>
+									<li>Taxa de atualização diária.</li>
+									<li>DICO: Identificador único de concelho (de acordo com a CAOP - DGT).</li>
+								</ul>
+							<p></p>
+							<p class="lead"><b>Resultado</b> (formato csv):<br>
+								<em>date,minimum,maximum,range,mean,std
+									2019-11-05,5.40000724792,5.75016117096,0.350153923035,5.49443501615,0.0778455785892
+									2019-11-06,6.50002336502,7.90272665024,1.40270328522,6.86927786787,0.332015116623</em><br>
+							</p><ul>
+								<li><span>date</span>: data dos valores de referência</li>
+								<li><span>minimum</span>: valor diário mínimo de Precipitação total em mm</li>
+								<li><span>maximum</span>: valor diário máximo de Precipitação total em mm</li>
+								<li><span>range</span>: valor diário da amplitude de Precipitação total em mm</li>
+								<li><span>mean</span>: valor diário da mediana de Precipitação total em mm</li>
+								<li><span>std</span>: valor diário do desvio padrão de Precipitação total em mm</li>
+							</ul>
+							<p></p>
+						</div>
+					</div>			  			
+				</div>
+				<div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="H9">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C9" aria-expanded="false" aria-controls="C9" onclick="this.blur();">
+								Temperatura Mínima diária por concelho (formato CSV)
+							</a>
+						</h4>
+						</div>
+						<div id="C9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H9" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br><a href="https://api.ipma.pt/open-data/observation/climate/temperature-min/">
+									 https://api.ipma.pt/open-data/observation/climate/temperature-min/{distrito}/mtnmn-{DICO}-{concelho}.csv
+								</a><br>
+								<u>Notas</u>: 
+								</p><ul>
+									<li>Valores diários obtidos através do processo de interpolação com recurso aos dados das estações meteorológicas automáticas da rede do IPMA.</li>
+									<li>Valores dos últimos 2 meses.</li>
+									<li>Taxa de atualização diária.</li>
+									<li>DICO: Identificador único de concelho (de acordo com a CAOP - DGT).</li>
+								</ul>
+							<p></p>
+							<p class="lead"><b>Resultado</b> (formato csv):<br>
+								<em>date,minimum,maximum,range,mean,std
+									2019-11-05,5.2000002861,8.27805137634,3.07805109024,5.69063032102,0.500534717151
+									2019-11-06,4.7000002861,6.99775123596,2.29775094986,5.0777118652,0.376617969391</em><br>
+							</p><ul>
+								<li><span>date</span>: data dos valores de referência</li>
+								<li><span>minimum</span>: valor diário mínimo de Temperatura Mínima em ºC</li>
+								<li><span>maximum</span>: valor diário máximo de Temperatura Mínima em ºC</li>
+								<li><span>range</span>: valor diário da amplitude de Temperatura Mínima em ºC</li>
+								<li><span>mean</span>: valor diário da mediana de Temperatura Mínima em ºC</li>
+								<li><span>std</span>: valor diário do desvio padrão de Temperatura Mínima em ºC</li>
+							</ul>
+							<p></p>
+						</div>
+					</div>			  			
+				</div>
+				<div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="H10">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C10" aria-expanded="false" aria-controls="C10" onclick="this.blur();">
+								Temperatura Máxima diária por concelho (formato CSV)
+							</a>
+						</h4>
+						</div>
+						<div id="C10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H10" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/observation/climate/temperature-max/">
+									https://api.ipma.pt/open-data/observation/climate/temperature-max/{distrito}/mtxmx-{DICO}-{concelho}.csv
+								</a><br>
+								<u>Notas</u>: 
+								</p><ul>
+									<li>Valores diários obtidos através do processo de interpolação com recurso aos dados das estações meteorológicas automáticas da rede do IPMA.</li>
+									<li>Valores dos últimos 2 meses.</li>
+									<li>Taxa de atualização diária.</li>
+									<li>DICO: Identificador único de concelho (de acordo com a CAOP - DGT).</li>
+								</ul>								   
+							<p></p>
+							<p class="lead"><b>Resultado</b> (formato csv):<br>
+								<em>date,minimum,maximum,range,mean,std
+									2019-11-05,19.3000221252,20.2863025665,0.986280441284,19.5742557244,0.254967600783
+									2019-11-06,18.4155673981,19.5003604889,1.08479309082,18.7312252525,0.266200544044</em><br>
+							</p><ul>
+								<li><span>date</span>: data dos valores de referência</li>
+								<li><span>minimum</span>: valor diário mínimo de Temperatura Máxima em ºC</li>
+								<li><span>maximum</span>: valor diário máximo de Temperatura Máxima em ºC</li>
+								<li><span>range</span>: valor diário da amplitude de Temperatura Máxima em ºC</li>
+								<li><span>mean</span>: valor diário da mediana de Temperatura Máxima em ºC</li>
+								<li><span>std</span>: valor diário do desvio padrão de Temperatura Máxima em ºC</li>
+							</ul>
+							<p></p>
+						</div>
+					</div>			  			
+				</div>
+				<div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="H11">
+						<h4 class="panel-title">
+							<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C11" aria-expanded="false" aria-controls="C11" onclick="this.blur();">
+								Índice PDSI (Palmer Drought Severity Index) mensal por concelho (formato CSV)
+							</a>
+						</h4>
+						</div>
+						<div id="C11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H11" aria-expanded="false">
+						<div class="panel-body">
+							<p>
+								<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/observation/climate/mpdsi/">
+									https://api.ipma.pt/open-data/observation/climate/mpdsi/{distrito}/mpdsi-{DICO}-{concelho}.csv
+								</a><br>
+								<u>Notas</u>: Taxa de atualização mensal. DICO: Identificador único de concelho (de acordo com a CAOP - DGT).
+								</p><ul>
+									<li><span>maior ou igual a 4,0</span> - Chuva extrema</li>
+									<li><span>3,00 a 4,0</span> - Chuva severa</li>
+									<li><span>2,00 a 3,99</span> - Chuva moderada</li>
+									<li><span>1,00 a 1,99</span> - Chuva fraca</li>
+									<li><span>-0,99 a 0,99</span> - Normal</li>
+									<li><span>-1,99 a -1,0</span> - Seca fraca</li>
+									<li><span>-2,99 a -2,0</span> - Seca moderada</li>
+									<li><span>-3,99 a -3,0</span> - Seca severa</li>
+									<li><span>menor ou igual a -4,00</span> - Seca extrema</li>
+								</ul>
+							<p></p>
+							<p class="lead"><b>Resultado</b> (formato csv):<br>
+								<em>date,minimum,maximum,range,mean,std
+									2019-06-01,-4.14065742493,-3.82811713219,0.31254029274,-4.00105850644,0.0688523113333
+									2019-07-01,-4.13271760941,-3.88426327705,0.248454332352,-4.02632138021,0.0540765353765</em><br>
+							</p><ul>
+								<li><span>date</span>: data dos valores de referência</li>
+								<li><span>minimum</span>: valor diário mínimo de PDSI</li>
+								<li><span>maximum</span>: valor diário máximo de PDSI</li>
+								<li><span>range</span>: valor diário da amplitude de PDSI</li>
+								<li><span>mean</span>: valor diário da mediana de PDSI</li>
+								<li><span>std</span>: valor diário do desvio padrão de PDSI</li>
+							</ul>
+							<p></p>
+						</div>
+					</div>			  			
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H14">
+					<h4 class="panel-title">
+						<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C14" aria-expanded="false" aria-controls="C14" onclick="this.blur();">
+							Interdições à apanha nas Zonas de Produção de Moluscos Bivalves (formato GeoJSON)
+							<img src="./IPMA - api_files/new.png"></a></h4><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion1" href="https://api.ipma.pt/#C14" aria-expanded="false" aria-controls="C14" onclick="this.blur();">
+						</a>
+					
+					</div>
+					<div id="C14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H14" aria-expanded="false">
+					<div class="panel-body">
+						<p>
+							<b>Invocação</b>:<br> <a href="https://api.ipma.pt/open-data/observation/biology/bivalves/CI_SNMB.geojson">
+								https://api.ipma.pt/open-data/observation/biology/bivalves/CI_SNMB.geojson
+							</a><br>
+							<u>Notas</u>: Últimas permissões / interdições publicadas para a apanha e comercialização de moluscos bivalves, equinodermes, tunicados e gastrópodes marinhos vivos, a data da publicação encontra-se no campo "publication_date".<br>
+							Mais informações na página do <a href="https://www.ipma.pt/pt/bivalves" target="_blank"><b>Sistema Nacional de Monitorização de Moluscos Bivalves</b>.</a>.
+						</p>
+						<p class="lead"><b>Resultado</b> (formato geojson): <em>{
+								"type": "FeatureCollection",
+								"publication_date": ...,
+								"snmb_reference": ...,
+								"cd_decision": ...,
+								"bulletin_name": ...,
+								"owner": ...,
+								"project": ...,	
+								"crs": { ... },							 
+								"features": [
+									{
+										"geometry": {
+											"type": "Polygon", 
+											"coordinates": [
+												...
+											]
+										}, 
+										"type": "Feature", 
+										"properties": {
+											"name": "Litoral Matosinhos", 
+											"code": "L2", 
+											"zone_type": "LITORAL", 
+											"region_name": "Norte", 
+											"representative_point": "POINT (-8.862641815298508 41.100897)",
+											"status": "PARTIAL_OPEN", 
+											"interdictions": {"open": [{"specie_c": "Am\u00eaijoa-rel\u00f3gio", "specie_s": "Dosinia exoleta", "classification": "B"}, {"specie_c": "Castanhola", "specie_s": "Glycymeris glycymeris", "classification": "A"}, {"specie_c": "Telina", "specie_s": "Arcopagia crassa", "classification": "B"}, {"specie_c": "Ouri\u00e7o-do-mar", "specie_s": "Paracentrotus lividus", "classification": "NA"}, {"specie_c": "Lapa", "specie_s": "Patella spp.", "classification": "NA"}, {"specie_c": "Am\u00eaijoa-branca", "specie_s": "Spisula solida", "classification": "B"}], "close": [{"specie_c": "Mexilh\u00e3o", "specie_s": "Mytilus spp.", "classification": "B"}]}}
+										},
+									}, ...}</em><br>
+						</p><ul>
+							<li><span>name</span>: nome da zona</li>
+							<li><span>code</span>: código da zona</li>
+							<li><span>zone_type</span>: tipo da zona ("LITORAL": Zona Litoral, "EST_LAG": Zona Estuarino-lagunar)</li>
+							<li><span>region_name</span>: nome da região em que se localiza a zona</li>
+							<li><span>representative_point</span>: coordenada geográfica onde se centra a zona, ponto representativo</li>
+							<li><span>status</span>: estado da zona ("OPEN": Situação de permissão de apanha e captura, "PARTIAL_OPEN": Situação de permissão parcial de apanha e captura, "CLOSED": Situação de interdição total de apanha e captura, "PARTIAL_OPEN", "NOINFO": Sem informação)</li>
+							<li><span>interdictions</span>: lista de espécies relativamente à interdição ("specie_s": nome científico (<b>s</b>cientific name); "specie_c": nome comum (<b>c</b>ommon name); "classification": estatuto sanitário ("A", "B", "C"))</li>
+						</ul>
+						<p></p>
+					</div>
+				</div>		
+            </div>	
+			<br>
+
+
+			<h3 class="featurette-subheading">Serviços auxiliares:</h3>
+			<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="false">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H20">
+					<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="https://api.ipma.pt/#C20" aria-expanded="false" aria-controls="C20" onclick="this.blur();">
+                        Lista de identificadores para as capitais distrito e ilhas</a></h4>
+					</div>
+					<div id="C20" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H20">
+						<div class="panel-body">
+						<p><b>Invocação</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/distrits-islands.json">
+							https://api.ipma.pt/open-data/distrits-islands.json</a><br>
+							<u>Notas</u>: Foram incluídos alguns locais de previsão não capitais de distrito, como por exemplo: Penhas Douradas, Sagres, Sines, ...</p>
+							<p class="lead"><b>Resultado</b> (formato json): <em>{ "owner": "IPMA",  "country": "PT",  "data": [  {"idRegiao": 1, "idAreaAviso": "AVR", "idConcelho": 5, "globalIdLocal": 1010500, "latitude": "40.6413", "idDistrito": 1, "local": "Aveiro", "longitude": "-8.6535"}]}</em><br>
+						</p><ul>
+							<li><span>globalIdLocal</span>: identificador do local </li>
+							<li><span>local</span>: nome do local</li>
+							<li><span>idRegiao</span>: identificador região [1 "Continente", 2 "Arq. Madeira", 3 "Arq. Açores"]</li>
+							<li><span>idConcelho</span>: identificador do concelho (identificador definido no âmbito DICO)</li>
+							<li><span>idDistrito</span>: identificador do distrito (identificador definido no âmbito DICO)</li>
+							<li><span>idAreaAviso</span>: identificador da área dos avisos</li>
+							<li><span>latitude</span>: latitude da coordenada geográfica (graus decimais)</li>
+							<li><span>longitude</span>: longitude da coordenada geográfica (graus decimais)</li>
+						</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H21">
+					<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="https://api.ipma.pt/#C21" aria-expanded="false" aria-controls="C21" onclick="this.blur();">
+						Lista de identificadores para as regiões costeiras</a></h4>
+					</div>
+					<div id="C21" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H21">
+						<div class="panel-body">
+						<p><b>Invocação</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/sea-locations.json">
+							https://api.ipma.pt/open-data/sea-locations.json</a></p><p class="lead"><b>Resultado</b> (formato json): <em>[
+
+								{
+									"idRegiao": 1,
+									"idAreaAviso": "CBR",
+									"globalIdLocal": 1060526,
+									"idLocal": 302,
+									"latitude": "40.1417",
+									"local": "Figueira da Foz, Costa",
+									"longitude": "-8.8783"
+								},...]</em><br>
+						</p><ul>
+							<li><span>globalIdLocal</span>: identificador do local </li>
+							<li><span>local</span>: nome do local</li>
+							<li><span>idLocal</span>: identificador do local</li>
+							<li><span>idRegiao</span>: identificador região [1 "Continente", 2 "Arq. Madeira", 3 "Arq. Açores"]</li>
+							<li><span>idAreaAviso</span>: identificador da área dos avisos</li>
+							<li><span>latitude</span>: latitude da coordenada geográfica (graus decimais)</li>
+							<li><span>longitude</span>: longitude da coordenada geográfica (graus decimais)</li>
+						</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H25">
+					<h4 class="panel-title">
+						<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="https://api.ipma.pt/#C25" aria-expanded="false" aria-controls="C25" onclick="this.blur();">
+						Lista de identificadores das estações meteorológicas</a> 
+					</h4>
+					</div>
+					<div id="C25" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H25">
+						<div class="panel-body">
+						<p><b>Invocação</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/observation/meteorology/stations/stations.json">
+							https://api.ipma.pt/open-data/observation/meteorology/stations/stations.json</a></p>
+							
+						<p class="lead"><b>Resultado</b> (formato json): <em>[ { "geometry": { "type": "Point", "coordinates": [-7.821, 37.033] }, "type": "Feature", "properties": { "idEstacao": 
+								1210881, "localEstacao": "Olh\u00e3o, EPPO" } }, ...]</em><br>
+							</p><ul>
+								<li><span>coordinates</span>: coordenada geográfica da estação [longitude, latitude] (graus decimais)</li>
+								<li><span>idEstacao</span>: identificador da estação</li>
+								<li><span>localEstacao</span>: nome da estação</li>
+							</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H22">
+					<h4 class="panel-title">
+						<a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="https://api.ipma.pt/#C22" aria-expanded="false" aria-controls="C22" onclick="this.blur();">
+							Lista de identificadores do tempo significativo
+						</a>
+					</h4>
+					</div>
+                <div id="C22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H22">
+                  <div class="panel-body">
+                    <p>
+						<b>Invocação</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/weather-type-classe.json">
+							https://api.ipma.pt/open-data/weather-type-classe.json</a>
+                    </p>
+                    <p class="lead"><b>Resultado</b> (formato json): <em>{ "owner": "IPMA",  "country": "PT",  "data": [  {"descWeatherTypeEN": "Partly cloudy", "descWeatherTypePT": "Céu pouco nublado", "idWeatherType": 2 }]}</em><br>
+                     </p><ul>
+                        <li><span>idWeatherType</span>: código para tempo significativo </li>
+                        <li><span>descWeatherTypeEN</span>: Descrição em Inglês</li>
+                        <li><span>descWeatherTypePT</span>: Descrição em Português</li>
+                     </ul>
+                    <p></p>
+                  </div>
+                </div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H23">
+					<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="https://api.ipma.pt/#C23" aria-expanded="false" aria-controls="C23" onclick="this.blur();">
+                        Lista de classes relativa à intensidade vento</a></h4>
+					</div>
+					<div id="C23" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H23">
+						<div class="panel-body">
+						<p><b>Invocação</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/wind-speed-daily-classe.json">
+							https://api.ipma.pt/open-data/wind-speed-daily-classe.json</a></p>
+						<p class="lead"><b>Resultado</b> (formato json): <em>{ "owner": "IPMA",  "country": "PT",  "data": [  {	"descClassWindSpeedEN": "Weak","descClassWindSpeedPT": "Fraco",	"classWindSpeed": "1" }]}</em><br>
+						</p><ul>
+							<li><span>classWindSpeed</span>: código para classe vento </li>
+							<li><span>descClassWindSpeedEN</span>: Descrição em Inglês</li>
+							<li><span>descClassWindSpeedPT</span>: Descrição em Português</li>
+						</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H24">
+					<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion2" href="https://api.ipma.pt/#C24" aria-expanded="false" aria-controls="C24" onclick="this.blur();">
+                        Lista de classes relativa à intensidade precipitação</a></h4>
+					</div>
+					<div id="C24" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H24">
+						<div class="panel-body">
+						<p><b>Invocação</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/precipitation-classe.json">
+							https://api.ipma.pt/open-data/precipitation-classe.json</a></p>
+						<p class="lead"><b>Resultado</b> (formato json): <em>{ "owner": "IPMA",  "country": "PT",  "data": [  {	"descClassPrecIntEN": "Weak","descClassPrecIntPT": "Fraco",	"classPrecInt": "1" }]}</em><br>
+						</p><ul>
+							<li><span>classPrecInt</span>: código para classe precipitação </li>
+							<li><span>descClassPrecIntEN</span>: Descrição em Inglês</li>
+							<li><span>descClassPrecIntPT</span>: Descrição em Português</li>
+						</ul>
+						<p></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+
+			<h3 class="featurette-subheading">Ficheiros adicionais:</h3>
+			<div class="panel-group" id="accordion3" role="tablist" aria-multiselectable="false">
+				<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="H30">
+					<h4 class="panel-title"><a class="lead collapsed" role="button" data-toggle="collapse" data-parent="#accordion3" href="https://api.ipma.pt/#C30" aria-expanded="false" aria-controls="C30" onclick="this.blur();">
+                        Simbologia Estados do Tempo</a>
+					</h4></div>
+					<div id="C30" class="panel-collapse collapse" role="tabpanel" aria-labelledby="H30">
+						<div class="panel-body">
+						<p><b>Ficheiro compactado com simbologia em formato svg</b>:<br> <a target="_blank" href="https://api.ipma.pt/open-data/forecast/meteorology/icons_ipma_weather.zip">
+							Descarregue aqui</a>
+						</p>
+						<p><b>Notas:</b> cada estado do tempo apresenta 4 ícones em formato svg:</p>
+						<ul>
+							<li>versão estática dia - 'w_ic_d_{idWeatherType}.svg'</li>
+							<li>versão animada dia - 'w_ic_d_{idWeatherType}anim.svg'</li>
+							<li>versão estática noite - 'w_ic_n_{idWeatherType}.svg'</li>
+							<li>versão animada noite - 'w_ic_n_{idWeatherType}anim.svg'</li>
+						</ul>
+						<p><b>Exemplo:</b> o ficheiro 'w_ic_d_01.svg' corresponde ao ícone estático diurno do estado do tempo com o código 1 - "Céu limpo". 
+							O mesmo ficheiro para a versão animada será 'w_ic_d_01anim.svg'. 
+							As versões noturnas correspondentes serão os ficheiros 'w_ic_n_01.svg' e 'w_ic_n_01anim.svg'.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+        <hr class="featurette-divider" id="legal">
+<!-- 4 Featurette -->
+		<div class="featurette">
+            <img class="featurette-image img-circle img-responsive pull-right" src="./IPMA - api_files/ipma.17-vertical-logo.png" alt="ipma logo">
+            <h2 class="featurette-heading">termos e <span class="text-muted">condições</span></h2>
+            <h3>Condições de Utilização</h3>
+            <p class="lead">Este sítio de internet é propriedade do Instituto Português do Mar e da Atmosfera, I.P., a seguir designado abreviadamente por IPMA, com sede em Lisboa, Rua C ao Aeroporto de Lisboa, 1749-077 Lisboa.</p>
+            <p class="lead">O IPMA gere este sítio de internet com o objetivo de melhorar o acesso do público à informação meteorológica, climatológica, geofísica e pescas.</p>
+            <p class="lead">O IPMA reserva-se no direito de alterar este site, bem como o seu acesso, sem qualquer aviso prévio, não se responsabilizando por eventuais danos ou prejuízos, sejam de que natureza for, em virtude da falta de continuidade ou disponibilidade do serviço.</p>
+            <p class="lead">O IPMA não garante a ausência de vírus neste sítio de internet nem a existência de outros elementos que possam produzir alterações no sistema informático dos Utilizadores ou nos ficheiros ou documentos armazenados no seu sistema informático, não se responsabilizando, assim, por quaisquer danos ou prejuízos neste âmbito.</p>
+            <p class="lead">Ao aceder ao presente site o Utilizador subscreve, expressamente, os termos e condições que o IPMA passa a indicar nestas <b>Condições de Utilização</b>, sendo a sua utilização indevida e abusiva punida por lei.</p>
+            <p class="lead">Quaisquer tentativas de alteração de informação, de carregamento de informação, ou qualquer outra ação que possa causar dano e/ou colocar em risco a integridade do sistema, é expressamente proibida, podendo ser punida de acordo com a legislação em vigor.</p>
+            <p class="lead">Utilizadores poderão ter de responder pelos danos e prejuízos, de qualquer natureza, que o IPMA possa sofrer devido ao incumprimento de qualquer obrigação a que se encontrem obrigados pelos referidos <b>Termos e condições</b>.</p>
+            <p class="lead">IPMA reserva-se no direito de recusar ou retirar o acesso a este serviço, em qualquer momento e sem aviso prévio, aos Utilizadores que não cumpram os <b>Termos e condições</b>.</p>
+
+            <h3>Declaração de Exoneração de Responsabilidade</h3>
+            <p class="lead">O material contido neste sítio de internet é constituído por informações de carácter geral e meramente indicativo, destinando-se, em exclusivo, a permitir ao Utilizador uma adequada utilização do conjunto de produtos e serviços disponibilizados pelo IPMA. </p>
+            <p class="lead">Este site do IPMA poderá estar ligado a sítios externos sobre os quais o mesmo não tem qualquer controlo e pelos quais não assume qualquer responsabilidade. Todos os conteúdos fornecidos por entidades externas, devidamente identificadas, são da exclusiva responsabilidade dessas entidades. </p>
+            <p class="lead">O IPMA procura, contudo, que esses conteúdos detenham elevados níveis de fiabilidade e credibilidade não podendo, no entanto, dar qualquer garantia quanto ao seu rigor à sua atualidade. </p>
+            <p class="lead">É objetivo deste sítio de internet minimizar os inconvenientes causados por erros técnicos, todavia, determinados dados ou informação contidos neste site podem ter sido criados ou estruturados em ficheiros ou formatos não isentos de erros. </p>
+            <p class="lead">O IPMA não pode garantir a não interrupção ou a não perturbação do serviço devido a problemas técnicos. </p>
+            <p class="lead">Em consequência, o IPMA não assume qualquer responsabilidade por problemas, que surjam para os Utilizadores ou entidades terceiras em virtude da consulta deste sítio de internet ou de quaisquer sítios externos a ele ligados.</p>
+
+            <h3>Declaração sobre proteção dos direitos de autor</h3>
+            <p class="lead">O conteúdo deste sítio de internet é protegido por Direitos de Autor e Direitos Conexos e Direitos de Propriedade Industrial ao abrigo das leis portuguesas e da União Europeia e outras convenções internacionais, não podendo ser utilizado fora das condições admitidas neste sitio de internet.  </p>
+            <p class="lead">O Utilizador pode copiar, importar ou utilizar gratuitamente informações ou símbolos nacionais existentes neste site para uso <b>pessoal ou público desde que dessa utilização não decorram finalidades lucrativas ou ofensivas</b>. </p>
+            <p class="lead">O Utilizador deve <b>referir, sempre, a fonte de informação</b>. </p>
+            <p class="lead">No que respeita aos sítios para que este site faz ligação deverá ser obtida a autorização dos autores desse material ou feita referência à fonte conforme as respectivas declarações de direitos de autor. Os direitos de autor não se aplicam aos discursos, declarações ou comunicados produzidos por elementos do IPMA, embora os seus autores, data e circunstâncias  devam ser referidos para boa informação.  </p>
+            <p class="lead">O <b>logo-símbolo do sítio de internet do IPMA deve ser utilizado sempre que um Utilizador pretenda incluir informação disponibilizada pelo sítio de internet em páginas de hiper-documentos</b>, devendo referenciar a hiper-ligação ao site do IPMA. </p>
+
+            <h3>Declaração de Confidencialidade</h3>
+            <p class="lead">Nos termos do art.º 35º da CRP e da Lei n.º 67/98, de 26 de Outubro, a informação recolhida sobre os Utilizadores do site do IPMA não é de carácter pessoal, pelo que se assegura a confidencialidade da identidade do visitante. </p>
+            <p class="lead">Existirá, contudo, lugar a identificação dos Utilizadores sempre que cometem atos ilegais dentro do sítio de internet, violem o respetivo código de conduta, ou quando tal for solicitado mediante decisão judicial. </p>
+            <p class="lead">O IPMA compromete-se a tomar todas as medidas necessárias para evitar perdas, má utilização, ou alteração da informação recebida dos utentes. </p>
+            <p class="lead">No caso do visitante enviar uma mensagem ao site do IPMA, o seu endereço não será registado ou divulgado, exceto se tal for pedido por sentença judicial. </p>
+		</div>
+		<hr class="featurette-divider" id="contact">
+<!--  5 Featurette -->
+		<div class="featurette">
+            <img class="featurette-image img-circle img-responsive pull-right" src="./IPMA - api_files/img-contact.png" alt="contacts">
+            <h2 class="featurette-heading">Contactos<span class="text-muted"></span></h2>
+            <p class="lead">O sistema é operado pelo IPMA. Para contacto utilize o endereço de email <a href="mailto:webmaster@ipma.pt">webmaster@ipma.pt</a>.
+		</p></div>
+        <hr class="featurette-divider">
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright © IPMA 2017 | <a target="_blank" href="https://www.ipma.pt/">ipma.pt</a> </p>
+                </div>
+            </div>
+        </footer>
+	</div> 	
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="./IPMA - api_files/jquery.js.transferir"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./IPMA - api_files/bootstrap.min.js.transferir"></script>
+
+
+
+
+</div></div></body></html>
