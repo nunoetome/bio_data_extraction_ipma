@@ -1,5 +1,6 @@
 # -------------- worker_ipma_api_av_met_3.py --------------
 #
+#TODO: #2 review the heather for worker_ipma_api_av_met_3.py
 # ------------------- Description -------------------------
 # This script downloads api data from IPMA and saves it to a file
 # It es part of a set of scripts dedicated to IPMA, and very similar
@@ -56,10 +57,10 @@ HISTORIC_FILE = 'datasets/av_met_3/ipma_api_av_met_3_history.txt'
 def __generate_api_file_name (dataset_name):
     current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
     LOGGER.debug("Current date and time: %s", current_time)
-    fileName = f"{dataset_name}_{current_time}.xml"
+    file_name = f"{dataset_name}_{current_time}.xml"
     LOGGER.debug("Dataset name: %s", dataset_name)
-    LOGGER.info("File name: %s", fileName)
-    return fileName
+    LOGGER.info("File name: %s", file_name)
+    return file_name
 
 
 
