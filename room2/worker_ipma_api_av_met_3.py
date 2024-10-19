@@ -79,6 +79,7 @@ def worker_ipma_api_av_met_3():
         return
     LOGGER.debug("API Response: %s", api_response)
 
+    #TODO: #3 verify and expunge duplicated information
     # Save the content to a file
     file_name = __generate_api_file_name(DATASET_ID)
     try:
